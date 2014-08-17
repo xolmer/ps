@@ -1,0 +1,31 @@
+@mixin form-errors-container {
+  margin-top: -7px;
+  list-style: none;
+  padding: 0px;
+}
+
+@mixin form-errors-error-item {
+  color: white;
+  background-color: red;
+  padding: 2px 6px;
+  font-weight: bold;
+
+  &:before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e107 \00a0 ";
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+  &:last-child{
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  &:first-child{
+    margin-top: -4px;
+  }
+}

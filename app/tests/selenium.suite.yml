@@ -1,0 +1,11 @@
+class_name: SeleniumTester
+modules:
+   enabled: [Laravel4,SeleniumHelper,WebDriver,Db]
+   config:
+      WebDriver:
+         url: 'http://localhost:8000/'
+         browser: firefox
+         window_size: 1920x1080
+         wait: 1
+         capabilities:
+             unexpectedAlertBehaviour: 'accept'
