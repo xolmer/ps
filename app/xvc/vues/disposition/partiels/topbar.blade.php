@@ -50,7 +50,7 @@
 
 </ul>
 
-<ul class="user-info pull-left pull-right-xs pull-none-xsm">
+<ul class="user-info pull-left pull-right-xs pull-none-xsm" style="display:none;"> 
 
 <!-- Raw Notifications -->
 <li class="notifications dropdown">
