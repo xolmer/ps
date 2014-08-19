@@ -1,5 +1,4 @@
 <?php
-
 namespace GuzzleHttp\Adapter\Curl;
 
 use GuzzleHttp\Adapter\TransactionInterface;
@@ -41,6 +40,19 @@ class BatchContext
     }
 
     /**
+     * Closes all of the requests associated with the underlying multi handle.
+     */
+    public function removeAll()
+    {
+        foreach ($this->handles as $transaction) {
+            $ch = $this->handles[$transaction];
+            curl_multi_remove_handle($this->multi, $ch);
+            curl_close($ch);
+            unset($this->handles[$transaction]);
+        }
+    }
+
+    /**
      * Find a transaction for a given curl handle
      *
      * @param resource $handle Curl handle
@@ -57,6 +69,16 @@ class BatchContext
         }
 
         throw new AdapterException('No curl handle was found');
+    }
+
+    /**
+     * Returns true if there are any active requests.
+     *
+     * @return bool
+     */
+    public function isActive()
+    {
+        return count($this->handles) > 0;
     }
 
     /**
@@ -143,15 +165,14 @@ class BatchContext
         }
 
         $handle = $this->handles[$transaction];
-
+        $this->handles->detach($transaction);
+        $info = curl_getinfo($handle);
         $code = curl_multi_remove_handle($this->multi, $handle);
-        if ($code != CURLM_OK) {
+        curl_close($handle);
+
+        if ($code !== CURLM_OK) {
             MultiAdapter::throwMultiError($code);
         }
-
-        $info = curl_getinfo($handle);
-        curl_close($handle);
-        unset($this->handles[$transaction]);
 
         return $info;
     }

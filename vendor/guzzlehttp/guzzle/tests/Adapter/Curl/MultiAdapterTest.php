@@ -12,6 +12,9 @@ use GuzzleHttp\Event\ErrorEvent;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\MessageFactory;
 use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\NoSeekStream;
+use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Tests\Server;
 
 /**
@@ -61,6 +64,7 @@ class MultiAdapterTest extends AbstractCurl
 
     public function testChecksForCurlException()
     {
+        $mh = curl_multi_init();
         $request = new Request('GET', 'http://httbin.org');
         $transaction = $this->getMockBuilder('GuzzleHttp\Adapter\Transaction')
             ->setMethods(['getRequest'])
@@ -71,7 +75,7 @@ class MultiAdapterTest extends AbstractCurl
             ->will($this->returnValue($request));
         $context = $this->getMockBuilder('GuzzleHttp\Adapter\Curl\BatchContext')
             ->setMethods(['throwsExceptions'])
-            ->disableOriginalConstructor()
+            ->setConstructorArgs([$mh, true])
             ->getMock();
         $context->expects($this->once())
             ->method('throwsExceptions')
@@ -81,8 +85,10 @@ class MultiAdapterTest extends AbstractCurl
         $r->setAccessible(true);
         try {
             $r->invoke($a, $transaction, ['result' => -10], $context, []);
+            curl_multi_close($mh);
             $this->fail('Did not throw');
         } catch (RequestException $e) {
+            curl_multi_close($mh);
             $this->assertSame($request, $e->getRequest());
             $this->assertContains('[curl] (#-10) ', $e->getMessage());
             $this->assertContains($request->getUrl(), $e->getMessage());
@@ -188,6 +194,148 @@ class MultiAdapterTest extends AbstractCurl
         $a = new MultiAdapter(new MessageFactory());
         try {
             $a->send($t);
+            $this->fail('Did not throw');
+        } catch (RequestException $e) {
+            $this->assertSame($request, $e->getRequest());
+        }
+    }
+
+    public function testEnsuresResponseWasSetForGet()
+    {
+        $client = new Client();
+        $request = $client->createRequest('GET', Server::$url);
+        $response = new Response(200, []);
+        $er = null;
+
+        $request->getEmitter()->on(
+            'error',
+            function (ErrorEvent $e) use (&$er, $response) {
+                $er = $e;
+            }
+        );
+
+        $transaction = $this->getMockBuilder('GuzzleHttp\Adapter\Transaction')
+            ->setMethods(['getResponse', 'setResponse'])
+            ->setConstructorArgs([$client, $request])
+            ->getMock();
+        $transaction->expects($this->any())->method('setResponse');
+        $transaction->expects($this->any())
+            ->method('getResponse')
+            ->will($this->returnCallback(function () use ($response) {
+                $caller = debug_backtrace()[6]['function'];
+                return $caller == 'addHandle' ||
+                    $caller == 'validateResponseWasSet'
+                    ? null
+                    : $response;
+            }));
+
+        $a = new MultiAdapter(new MessageFactory());
+        Server::flush();
+        Server::enqueue(["HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n"]);
+        $a->sendAll(new \ArrayIterator([$transaction]), 10);
+        $this->assertNotNull($er);
+
+        $this->assertContains(
+            'No response was received',
+            $er->getException()->getMessage()
+        );
+    }
+
+    private function runConnectionTest(
+        $queue,
+        $stream,
+        $msg,
+        $statusCode = null
+    ) {
+        $obj = new \stdClass();
+        $er = null;
+        $client = new Client();
+        $request = $client->createRequest('PUT', Server::$url, [
+            'body' => $stream
+        ]);
+
+        $request->getEmitter()->on(
+            'error',
+            function (ErrorEvent $e) use (&$er) {
+                $er = $e;
+            }
+        );
+
+        $transaction = $this->getMockBuilder('GuzzleHttp\Adapter\Transaction')
+            ->setMethods(['getResponse', 'setResponse'])
+            ->setConstructorArgs([$client, $request])
+            ->getMock();
+
+        $transaction->expects($this->any())
+            ->method('setResponse')
+            ->will($this->returnCallback(function ($r) use (&$obj) {
+                $obj->res = $r;
+            }));
+
+        $transaction->expects($this->any())
+            ->method('getResponse')
+            ->will($this->returnCallback(function () use ($obj, &$called) {
+                $caller = debug_backtrace()[6]['function'];
+                if ($caller == 'addHandle') {
+                    return null;
+                } elseif ($caller == 'validateResponseWasSet') {
+                    return ++$called == 2 ? $obj->res : null;
+                } else {
+                    return $obj->res;
+                }
+            }));
+
+        $a = new MultiAdapter(new MessageFactory());
+        Server::flush();
+        Server::enqueue($queue);
+        $a->sendAll(new \ArrayIterator([$transaction]), 10);
+
+        if ($msg) {
+            $this->assertNotNull($er);
+            $this->assertContains($msg, $er->getException()->getMessage());
+        } else {
+            $this->assertEquals(
+                $statusCode,
+                $transaction->getResponse()->getStatusCode()
+            );
+        }
+    }
+
+    public function testThrowsWhenTheBodyCannotBeRewound()
+    {
+        $this->runConnectionTest(
+            ["HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n"],
+            new NoSeekStream(Stream::factory('foo')),
+            'attempting to rewind the request body failed'
+        );
+    }
+
+    public function testRetriesRewindableStreamsWhenClosedConnectionErrors()
+    {
+        $this->runConnectionTest(
+            [
+                "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n",
+                "HTTP/1.1 201 OK\r\nContent-Length: 0\r\n\r\n",
+            ],
+            Stream::factory('foo'),
+            false,
+            201
+        );
+    }
+
+    public function testThrowsImmediatelyWhenInstructed()
+    {
+        Server::flush();
+        Server::enqueue(["HTTP/1.1 501\r\nContent-Length: 0\r\n\r\n"]);
+        $c = new Client(['base_url' => Server::$url]);
+        $request = $c->createRequest('GET', '/');
+        $request->getEmitter()->on('error', function (ErrorEvent $e) {
+            $e->throwImmediately(true);
+        });
+        $transactions = [new Transaction($c, $request)];
+        $a = new MultiAdapter(new MessageFactory());
+        try {
+            $a->sendAll(new \ArrayIterator($transactions), 1);
             $this->fail('Did not throw');
         } catch (RequestException $e) {
             $this->assertSame($request, $e->getRequest());

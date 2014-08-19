@@ -14,6 +14,7 @@ namespace GuzzleHttp\Tests\Adapter\Curl {
 
     use GuzzleHttp\Adapter\Curl\MultiAdapter;
     use GuzzleHttp\Event\BeforeEvent;
+    use GuzzleHttp\Exception\ServerException;
     use GuzzleHttp\Message\RequestInterface;
     use GuzzleHttp\Stream\Stream;
     use GuzzleHttp\Adapter\Curl\CurlFactory;
@@ -149,17 +150,72 @@ namespace GuzzleHttp\Tests\Adapter\Curl {
         public function testDecodesGzippedResponses()
         {
             Server::flush();
-            Server::enqueue(["HTTP/1.1 200 OK\r\nContent-Length: 3\r\n\r\nfoo"]);
-            $request = new Request('GET', Server::$url, ['Accept-Encoding' => '']);
+            $content = gzencode('test');
+            $message = "HTTP/1.1 200 OK\r\n"
+                . "Content-Encoding: gzip\r\n"
+                . "Content-Length: " . strlen($content) . "\r\n\r\n"
+                . $content;
+            Server::enqueue($message);
+            $client = new Client();
+            $request = $client->createRequest('GET', Server::$url);
             $this->emit($request);
-            $t = new Transaction(new Client(), $request);
+            $t = new Transaction($client, $request);
             $f = new CurlFactory();
             $h = $f($t, new MessageFactory());
             curl_exec($h);
             curl_close($h);
-            $this->assertEquals('foo', $t->getResponse()->getBody());
             $sent = Server::received(true)[0];
-            $this->assertContains('gzip', $sent->getHeader('Accept-Encoding'));
+            $this->assertSame('', $sent->getHeader('Accept-Encoding'));
+            $this->assertEquals('test', (string) $t->getResponse()->getBody());
+        }
+
+        public function testDecodesWithCustomAcceptHeader()
+        {
+            Server::flush();
+            $content = gzencode('test');
+            $message = "HTTP/1.1 200 OK\r\n"
+                . "Content-Encoding: gzip\r\n"
+                . "Content-Length: " . strlen($content) . "\r\n\r\n"
+                . $content;
+            Server::enqueue($message);
+            $client = new Client();
+            $request = $client->createRequest('GET', Server::$url, [
+                'decode_content' => 'gzip'
+            ]);
+            $this->emit($request);
+            $t = new Transaction($client, $request);
+            $f = new CurlFactory();
+            $h = $f($t, new MessageFactory());
+            curl_exec($h);
+            curl_close($h);
+            $sent = Server::received(true)[0];
+            $this->assertSame('gzip', $sent->getHeader('Accept-Encoding'));
+            $this->assertEquals('test', (string) $t->getResponse()->getBody());
+        }
+
+        public function testDoesNotForceDecode()
+        {
+            Server::flush();
+            $content = gzencode('test');
+            $message = "HTTP/1.1 200 OK\r\n"
+                . "Content-Encoding: gzip\r\n"
+                . "Content-Length: " . strlen($content) . "\r\n\r\n"
+                . $content;
+            Server::enqueue($message);
+            $client = new Client();
+            $request = $client->createRequest('GET', Server::$url, [
+                'headers'        => ['Accept-Encoding' => 'gzip'],
+                'decode_content' => false
+            ]);
+            $this->emit($request);
+            $t = new Transaction($client, $request);
+            $f = new CurlFactory();
+            $h = $f($t, new MessageFactory());
+            curl_exec($h);
+            curl_close($h);
+            $sent = Server::received(true)[0];
+            $this->assertSame('gzip', $sent->getHeader('Accept-Encoding'));
+            $this->assertSame($content, (string) $t->getResponse()->getBody());
         }
 
         public function testAddsDebugInfoToBuffer()
@@ -307,6 +363,28 @@ namespace GuzzleHttp\Tests\Adapter\Curl {
         {
             $event = new BeforeEvent(new Transaction(new Client(), $request));
             $request->getEmitter()->emit('before', $event);
+        }
+
+        public function testDoesNotAlwaysAddContentType()
+        {
+            Server::flush();
+            Server::enqueue(["HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n"]);
+            $client = new Client();
+            $client->put(Server::$url . '/foo', ['body' => 'foo']);
+            $request = Server::received(true)[0];
+            $this->assertEquals('', $request->getHeader('Content-Type'));
+        }
+
+        /**
+         * @expectedException \GuzzleHttp\Exception\AdapterException
+         */
+        public function testThrowsForStreamOption()
+        {
+            $request = new Request('GET', Server::$url . 'haha');
+            $request->getConfig()->set('stream', true);
+            $t = new Transaction(new Client(), $request);
+            $f = new CurlFactory();
+            $f($t, new MessageFactory());
         }
     }
 }
