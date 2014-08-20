@@ -95,4 +95,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->is_active ? Lang::get('words.active') : Lang::get('words.inactive');
     }
 
+    public function getProfileColorAttribute(){
+       return Lang::get('words.colors.' . $this->theme_color);
+    }
+
+
+
 }

@@ -4,7 +4,9 @@
 
 $(document).ready(function () {
 
-
+    if (typeof ko == 'undefined'){
+       //if knockout is not added to page exit the funciton
+    }
 
     //Account model
     var Account = function (id) {

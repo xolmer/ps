@@ -178,7 +178,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-5">
-                                {{Form::submit(Lang::get('ui.buttons.create_user'),array('class' => 'btn btn-default farsi'))}}
+                                {{Form::submit(Lang::get('ui.buttons.create_user'),array('class' => 'btn btn-primary farsi farsi'))}}
                         </div>
                     </div>
                 {{Form::close()}}

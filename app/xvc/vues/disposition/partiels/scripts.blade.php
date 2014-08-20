@@ -19,5 +19,7 @@
 <script src="/assets/js/neon-chat.js"></script>
 <script src="/assets/js/neon-custom.js"></script>
 <script src="/assets/js/neon-demo.js"></script>
+<script src="/parsian/js/parsian.js"></script>
+
 @section('pageScripts')
 @show

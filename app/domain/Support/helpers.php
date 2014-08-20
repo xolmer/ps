@@ -12,3 +12,8 @@ function toJalali($timestamp=null,$format = null){
     }
     return jDateTime::date($format, $timestamp, true, true, 'Asia/Tehran');
 }
+
+function country($countryID){
+    $countryID = empty($countryID) ? 158 : $countryID;
+    return DB::table('countries')->where('id', $countryID)->pluck('country_name');
+}

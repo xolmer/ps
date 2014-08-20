@@ -11,16 +11,16 @@
 
 return array(
     'buttons'    => array(
-        'edit'        => 'ویرایش',
-        'update'      => 'بروزرسانی',
-        'create_user' => 'معرفی کاربر جدید',
-        'update_user' => 'به روز رسانی کاربر',
-        'next' => 'بعدی',
-        'previous' => 'قبلی',
-        'addCustomerAccount' => 'معرفی حساب بانکی جدید',
+        'edit'                      => 'ویرایش',
+        'update'                    => 'بروزرسانی',
+        'create_user'               => 'معرفی کاربر جدید',
+        'update_user'               => 'به روز رسانی کاربر',
+        'next'                      => 'بعدی',
+        'previous'                  => 'قبلی',
+        'addCustomerAccount'        => 'معرفی حساب بانکی جدید',
         'addCustomerContactDetails' => 'اضافه کردن اطاعات تماس',
         'addCustomerAddressDetails' => 'اضافه کردن آدرس',
-        'confirmAndCreateCustomer' => 'تایید و ایجاد مشتری'
+        'confirmAndCreateCustomer'  => 'تایید و ایجاد مشتری'
     ),
 
     //For Side menu and breadcrumbs and page headings
@@ -30,6 +30,7 @@ return array(
         'create_user'     => 'معرفی کاربر جدید',
         'edit_user'       => 'ویرایش اطلاعات کاربر',
         'create_customer' => 'معرفی مشتری جدید',
+        'profile'         => 'پروفایل کاربری',
 
     )
 

@@ -12,11 +12,16 @@
 namespace SaarangSlt\Repositories\UserRepository;
 
 use \SaarangSlt\Repositories\BaseRepositoryInterface as BaseRepositoryInterface;
-interface UserRepositoryInterface extends  BaseRepositoryInterface{
 
-    public function createNewUser($attributes);
+interface UserRepositoryInterface extends BaseRepositoryInterface
+{
 
-    public function updateUser($userID,$attributes);
+    public function createNewUser( $attributes );
+
+    public function updateUser( $userID, $attributes );
+
+
+    public function currentUser();
 
 
 } 

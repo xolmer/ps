@@ -62,4 +62,11 @@ class UsersController extends \BaseController
 
         return Redirect::route('users.index');
     }
+    
+    
+    public function showProfile(){
+        
+        $currentUser = $this->user->currentUser();
+        return View::make('profile.profile')->with(array('currentUser' => $currentUser));
+    }
 } 

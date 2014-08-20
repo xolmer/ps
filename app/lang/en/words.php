@@ -11,6 +11,15 @@
 
 
 return array(
+    'colors' => array(
+      'black' => 'مشکی',
+      'red' => 'قرمز',
+      'green' => 'سبز',
+      'yellow' => 'زرد',
+      'cafe' => 'قهوه ای',
+      'purple' => 'بنفش',
+
+    ),
     'active'        => 'فعال',
     'inactive'      => 'غیر فعال',
     'username'      => 'نام کاربری',
@@ -47,5 +56,10 @@ return array(
     '2' => '۲',
     '3' => '۳',
     '4' => '۴',
-    '5' => '۵'
+    '5' => '۵',
+    'profileDetails' => 'اطلاعات پروفایل',
+    'update' => 'بروز رسانی',
+    'changeProfilePic' => 'تغییر عکس پروفایل',
+    'changePassword' => 'تغییر کلمه عبور',
+    'profile_color' => 'رنگ پروفایل'
 );

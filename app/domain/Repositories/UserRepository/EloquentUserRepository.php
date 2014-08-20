@@ -72,4 +72,10 @@ class EloquentUserRepository implements UserRepositoryInterface
         return $user;
 
     }
+
+    public function currentUser()
+    {
+        return \Auth::user();
+    }
+
 } 

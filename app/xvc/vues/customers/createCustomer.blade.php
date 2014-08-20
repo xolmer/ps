@@ -94,7 +94,7 @@
 @stop
 
 @section('pageScripts')
-<script type="text/javascript" src="/parsian/js/parsianFormValidators.js"></script>
+
 <script src="/assets/js/libs/knockoutjs.js"></script>
 
 @stop

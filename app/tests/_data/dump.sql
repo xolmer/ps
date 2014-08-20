@@ -86,7 +86,7 @@ CREATE TABLE `customer_addresses` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `customer_addresses_customer_id_index` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,7 @@ CREATE TABLE `customer_addresses` (
 
 LOCK TABLES `customer_addresses` WRITE;
 /*!40000 ALTER TABLE `customer_addresses` DISABLE KEYS */;
+INSERT INTO `customer_addresses` VALUES (1,1,158,'401 - Block J - Seri Maya Condo','2014-08-17 06:09:32','2014-08-17 06:09:32'),(2,1,158,'B20-1 Saffron Condo - Jalan Sentul Indah','2014-08-17 06:09:32','2014-08-17 06:09:32'),(3,2,158,'401 - Block J - Seri Maya Condo','2014-08-17 06:10:55','2014-08-17 06:10:55'),(4,2,158,'B20-1 Saffron Condo - Jalan Sentul Indah','2014-08-17 06:10:55','2014-08-17 06:10:55'),(5,4,158,'401 - Block J - Seri Maya Condo','2014-08-17 06:13:01','2014-08-17 06:13:01');
 /*!40000 ALTER TABLE `customer_addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +118,7 @@ CREATE TABLE `customer_bank_accounts` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `customer_bank_accounts_customer_id_index` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,6 +127,7 @@ CREATE TABLE `customer_bank_accounts` (
 
 LOCK TABLES `customer_bank_accounts` WRITE;
 /*!40000 ALTER TABLE `customer_bank_accounts` DISABLE KEYS */;
+INSERT INTO `customer_bank_accounts` VALUES (1,1,158,'CIMB Bank','MohammadReza Soltani','7011941875','','2014-08-17 06:09:32','2014-08-17 06:09:32'),(2,1,158,'Maybank','MohammadReza Soltani','112679080245','','2014-08-17 06:09:32','2014-08-17 06:09:32'),(3,1,158,'Affin Bank','Samira Soltani','55477465454','حساب بانکی متعلق به خواهر مشتری','2014-08-17 06:09:32','2014-08-17 06:09:32'),(4,2,158,'Affin Bank','Samira Soltani','55477465454','حساب بانکی متعلق به خواهر مشتری','2014-08-17 06:10:55','2014-08-17 06:10:55');
 /*!40000 ALTER TABLE `customer_bank_accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +151,7 @@ CREATE TABLE `customer_contact_details` (
   KEY `customer_contact_details_customer_id_index` (`customer_id`),
   KEY `customer_contact_details_phone_number_index` (`phone_number`),
   KEY `customer_contact_details_mobile_number_index` (`mobile_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +160,7 @@ CREATE TABLE `customer_contact_details` (
 
 LOCK TABLES `customer_contact_details` WRITE;
 /*!40000 ALTER TABLE `customer_contact_details` DISABLE KEYS */;
+INSERT INTO `customer_contact_details` VALUES (1,1,108,'00989171180394','00987116487034','','2014-08-17 06:09:32','2014-08-17 06:09:32'),(2,1,158,'014229204','','987422','2014-08-17 06:09:32','2014-08-17 06:09:32'),(3,2,108,'00989171180394','00987116487034','','2014-08-17 06:10:55','2014-08-17 06:10:55'),(4,2,158,'014229204','','987422','2014-08-17 06:10:55','2014-08-17 06:10:55'),(5,4,108,'00989171180394','00987116487034','','2014-08-17 06:13:01','2014-08-17 06:13:01');
 /*!40000 ALTER TABLE `customer_contact_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,9 +186,8 @@ CREATE TABLE `customers` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `customers_email_address_unique` (`email_address`),
   KEY `customers_full_name_index` (`full_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,6 +196,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'محمد رضا ','سلطانی','','رحیم','45345','K17147315',158,'sahandfx@gmail.com',NULL,'last check','2014-08-17 06:09:32','2014-08-17 06:09:32'),(2,'محمد رضا ','سلطانی','','رحیم','45345','K17147315',158,'sahandfx@gmail.com',NULL,'last check','2014-08-17 06:10:55','2014-08-17 06:10:55'),(3,'محمد رضا ','سلطانی','','رحیم','45345','K17147315',158,'sahandfx@gmail.com',NULL,'last check','2014-08-17 06:11:27','2014-08-17 06:11:27'),(4,'محمد رضا ','سلطانی','','رحیم','45345','K17147315',158,'sahandfx@gmail.com',NULL,'last check','2014-08-17 06:13:01','2014-08-17 06:13:01'),(5,'محمد رضا ','سلطانی','','رحیم','45345','K17147315',158,'sahandfx@gmail.com',NULL,'last check','2014-08-17 06:13:27','2014-08-17 06:13:27');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,8 +237,8 @@ CREATE TABLE `permission_role` (
   PRIMARY KEY (`id`),
   KEY `permission_role_permission_id_foreign` (`permission_id`),
   KEY `permission_role_role_id_foreign` (`role_id`),
-  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`)
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`),
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -298,7 +301,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'super_administrator','2014-07-29 09:57:13','2014-07-29 09:57:13'),(2,'admin','2014-07-29 09:57:13','2014-07-29 09:57:13');
+INSERT INTO `roles` VALUES (1,'super_administrator','2014-08-17 06:04:59','2014-08-17 06:04:59'),(2,'admin','2014-08-17 06:04:59','2014-08-17 06:04:59');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +353,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -359,7 +362,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Mohammadreza','Soltani','saarang','$2y$10$/DNXWacLCnMxk8HYJ1QsnO7teH9yLJKuRNtJMVwq9BT47V0lwbOBC','sahandfx@gmail.com','60142239204','',NULL,1,'Asia/Kuala_Lumpur','2014-07-29 16:28:28',NULL,'green','2014-07-29 09:57:14','2014-07-29 16:28:28'),(4,'Amir','Doe','testuser','$2y$10$DR7PLDtpisBMO1WQm2/TzeeVdqvDzbVjPnsXp8OS9FgE4UYPmkpte','test@testuser.com','60142239204','108',NULL,1,'Asia/Tehran',NULL,NULL,'green','2014-07-29 16:08:12','2014-07-29 16:08:12');
+INSERT INTO `users` VALUES (1,'Mohammadreza','Soltani','saarang','$2y$10$WJW/Ztl68mntfMHJTj8YKeKQXN/xjcGPdaKH7c8PmzO.QSxUf.JjC','sahandfx@gmail.com','60142239204','',NULL,1,'Asia/Kuala_Lumpur','2014-08-19 22:35:57',NULL,'black','2014-08-17 06:04:59','2014-08-19 22:35:57'),(2,'Amir','Doe','testuser','$2y$10$nOoxKQpubfb9HJBaSaW89uNixgqz1uqtVnMee3DljxoTTbgoyyNk6','test@testuser.com','60142239204','108',NULL,1,'Asia/Tehran',NULL,NULL,'green','2014-08-19 22:35:26','2014-08-19 22:35:26');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -372,4 +375,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-30  0:31:26
+-- Dump completed on 2014-08-20  6:42:09
