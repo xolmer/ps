@@ -19,7 +19,7 @@
 
             <!-- Profile sub-links -->
             <li>
-                <a href="extra-timeline.html">
+                <a href="{{URL::route('profile')}}">
                     <i class="entypo-user"></i>
                     پروفایل کاربری
                 </a>

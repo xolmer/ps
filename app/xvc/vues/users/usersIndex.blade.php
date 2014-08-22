@@ -51,7 +51,7 @@
                         {{Lang::get('words.email_address')}}
                     </th>
                     <th>
-                        {{Lang::get('words.phone_number')}}
+                        {{Lang::get('words.mobile_number')}}
                     </th>
                     <th>
                         {{Lang::get('words.account_state')}}
@@ -78,7 +78,7 @@
                     <td>{{$user->last_name}}</td>
                     <td>{{$user->username}}</td>
                     <td>{{$user->email_address}}</td>
-                    <td>{{$user->phone_number}}</td>
+                    <td>{{$user->mobile_number}}</td>
                     <td>{{$user->account_status}}</td>
                     <td>{{$user->timezone}}</td>
                     <td>{{$user->last_login}}</td>

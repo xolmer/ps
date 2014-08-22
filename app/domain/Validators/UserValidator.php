@@ -10,7 +10,7 @@ class UserValidator extends BaseValidator {
         'username' => 'required|unique:users',
         'password' => 'required|min:6|confirmed',
         'email_address' => 'email',
-        'phone_number' => 'required',
+        'mobile_number' => 'required',
         'country_of_residence' => 'required',
         'timezone' => 'timezone'
     );
@@ -23,7 +23,7 @@ class UserValidator extends BaseValidator {
         'password.required' => 'کلمه عبور اجباری است',
         'password.min' => 'کلمه عبور حداقل باید شش حرف باشد',
         'password.confirmed' => 'کلمه عبور برای تایید باید مجددا وارد شود',
-        'phone_number.required' => 'شماره تماس کاربر اجباری است',
+        'mobile_number.required' => 'شماره تماس کاربر اجباری است',
         'country_of_residence.required' => 'کشور محل سکونت کاربر اجباری است',
         'timezone' => 'منطقه زمانی وارد شده صحیح نمی باشد'
     );
@@ -34,7 +34,7 @@ class UserValidator extends BaseValidator {
         'last_name' => 'required',
         'password' => 'sometimes|required|min:6|confirmed',
         'email_address' => 'email',
-        'phone_number' => 'required',
+        'mobile_number' => 'required',
         'country_of_residence' => 'required',
         'timezone' => 'timezone'
     );

@@ -14,7 +14,7 @@ $I->fillField('username','testuser');
 $I->fillField('password','123456');
 $I->fillField('password_confirmation','123456');
 $I->fillField('email_address','test@testuser.com');
-$I->fillField('phone_number','60142239204');
+$I->fillField('mobile_number','60142239204');
 $I->selectOption('country_of_residence','Iran');
 $I->uncheckOption('#is_active');
 $I->selectOption('timezone','Asia/Tehran');

@@ -10,7 +10,7 @@ class UserTableSeeder extends seeder{
                 'username' => 'saarang',
                 'password' => Hash::make('123456'),
                 'email_address' => 'sahandfx@gmail.com',
-                'phone_number' => '60142239204',
+                'mobile_number' => '60142239204',
                 'theme_color' => 'default'
             )
         );

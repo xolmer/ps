@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->string('password');
 			$table->string('email_address');
-			$table->string('phone_number');
+			$table->string('mobile_number');
 			$table->string('country_of_residence');
 			$table->string('avatar_link')->nullable();
 			$table->boolean('is_active')->default(true);

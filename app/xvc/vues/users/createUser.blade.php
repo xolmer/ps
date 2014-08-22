@@ -121,17 +121,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group farsi {{Form::groupIsInvalid('phone_number')}}">
-                        {{Form::label('phone_number', Lang::get('words.phone_number'), array('class' => 'col-sm-3 control-label'))}}
+                    <div class="form-group farsi {{Form::groupIsInvalid('mobile_number')}}">
+                        {{Form::label('mobile_number', Lang::get('words.mobile_number'), array('class' => 'col-sm-3 control-label'))}}
                         <div class="col-sm-5">
-                            {{Form::text('phone_number', null, array('class' => 'form-control ltr','id' =>
-                            'phone_number','placeholder'=>Lang::get('words.phone_number')))}}
+                            {{Form::text('mobile_number', null, array('class' => 'form-control ltr','id' =>
+                            'mobile_number','placeholder'=>Lang::get('words.mobile_number')))}}
                             <div class="help-block">
-                                {{Form::error('phone_number')}}
+                                {{Form::error('mobile_number')}}
                                 <ul>
-                                    <li>{{Lang::get('phrases.help-block.user.phone_number.1')}}</li>
-                                    <li>{{Lang::get('phrases.help-block.user.phone_number.2')}}</li>
-                                    <li>{{Lang::get('phrases.help-block.user.phone_number.3')}}</li>
+                                    <li>{{Lang::get('phrases.help-block.user.mobile_number.1')}}</li>
+                                    <li>{{Lang::get('phrases.help-block.user.mobile_number.2')}}</li>
+                                    <li>{{Lang::get('phrases.help-block.user.mobile_number.3')}}</li>
                                 </ul>
                             </div>
                         </div>
