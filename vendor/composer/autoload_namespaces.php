@@ -37,6 +37,7 @@ return array(
     'Laracasts\\Validation' => array($vendorDir . '/laracasts/validation/src'),
     'Laracasts\\TestDummy' => array($vendorDir . '/laracasts/testdummy/src'),
     'Jeremeamia\\SuperClosure' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src'),
     'Instantiator\\' => array($vendorDir . '/ocramius/instantiator/src'),
     'Illuminate' => array($vendorDir . '/laravel/framework/src'),
     'File' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),

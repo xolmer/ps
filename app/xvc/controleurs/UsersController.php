@@ -13,7 +13,7 @@ use SaarangSlt\Repositories\UserRepository\UserRepositoryInterface;
 class UsersController extends \BaseController
 {
 
-    public function  __construct( UserRepositoryInterface $userRepository )
+    public function  __construct(UserRepositoryInterface $userRepository)
     {
         $this->user = $userRepository;
     }
@@ -22,51 +22,72 @@ class UsersController extends \BaseController
     {
         $users = $this->user->all();
 
-        return View::make( 'users.usersIndex' )->with( 'users', $users );
+        return View::make('users.usersIndex')->with('users', $users);
     }
 
 
     public function create()
     {
-        return View::make( 'users.createUser' );
+        return View::make('users.createUser');
     }
 
     public function store()
     {
 
-        $user = $this->user->createNewUser( Input::all() );
+        $user = $this->user->createNewUser(Input::all());
 
-        Flash::success( Lang::get( 'messages.user.create-success', array(
-            'user'  => $user->full_name,
+        Flash::success(Lang::get('messages.user.create-success', array(
+            'user' => $user->full_name,
             'state' => $user->account_status
-        ) ) );
-
-        return Redirect::route( 'users.index' );
-    }
-
-
-    public function edit( $userID )
-    {
-        $user = $this->user->findById( $userID );
-
-        return View::make( 'users.editUser' )->with( 'user', $user );
-    }
-
-    public function update( $userID )
-    {
-        $user = $this->user->updateUser( $userID, Input::all() );
-
-        Flash::success( Lang::get( 'messages.user.update-success' , array(
-            'user'  => $user->full_name,
-         ) ));
+        )));
 
         return Redirect::route('users.index');
     }
-    
-    
-    public function showProfile(){
-        
+
+
+    public function edit($userID)
+    {
+        $user = $this->user->findById($userID);
+
+        return View::make('users.editUser')->with('user', $user);
+    }
+
+    public function update($userID)
+    {
+        $user = $this->user->updateUser($userID, Input::all());
+
+        Flash::success(Lang::get('messages.user.update-success', array(
+            'user' => $user->full_name,
+        )));
+
+        return Redirect::route('users.index');
+    }
+
+
+    public function showProfile()
+    {
+
         $currentUser = $this->user->currentUser();
         return View::make('profile.profile')->with(array('currentUser' => $currentUser));
+    }
+
+
+    public function updateAvatar()
+    {
+        $avatarFile = Input::file('avatar');
+        $user = $this->user->currentUser();
+
+        $this->user->storeAvatar($user->id, $avatarFile);
+        return Redirect::back();
+
+    }
+
+
+    public function removeAvatar()
+    {
+        $user = $this->user->currentUser();
+        if ($user->has_avatar) {
+            $this->user->removeAvatar($user->id);
+        }
     }
 } 

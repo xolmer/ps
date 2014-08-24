@@ -122,6 +122,7 @@ return array(
 		'Zizaco\Entrust\EntrustServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
         'SaarangSlt\ServiceProviders\FlashServiceProvider',
         'SaarangSlt\ServiceProviders\EventListenerServiceProvider',
         'SaarangSlt\ServiceProviders\RepositoryServiceProvider',
@@ -192,7 +193,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Flash'           => 'SaarangSlt\Notifications\Flash',
-		'Entrust'    => 'Zizaco\Entrust\EntrustFacade' 
+		'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+		'Image' => 'Intervention\Image\Facades\Image'
 
 	),
 

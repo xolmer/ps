@@ -20,7 +20,9 @@ return array(
         'addCustomerAccount'        => 'معرفی حساب بانکی جدید',
         'addCustomerContactDetails' => 'اضافه کردن اطاعات تماس',
         'addCustomerAddressDetails' => 'اضافه کردن آدرس',
-        'confirmAndCreateCustomer'  => 'تایید و ایجاد مشتری'
+        'confirmAndCreateCustomer'  => 'تایید و ایجاد مشتری',
+        'updateAvatar' => 'بروزرسانی عکس پروفایل',
+        'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
     ),
 
     //For Side menu and breadcrumbs and page headings

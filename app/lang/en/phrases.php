@@ -16,6 +16,7 @@ return array(
     'associateContactDetailsToCustomerText' => 'برای هر مشتری می توان به تعداد نامحدودی اطلاعات تماس معرفی کرد. برای اضافه کردن اطلاعات تماس جدید بر روی دکمه <strong>":button" </strong> کلیک کنید. <br> در زمان ثبت اطلاعات تماس مشتری حتما کشور مربوطه را انتخاب کنید. ,',
     'associateAddressDetailsToCustomerText' => 'برای هر مشتری می توان به تعداد نامحدودی آدرس معرفی کرد. برای اضافه کردن آدرس  جدید بر روی دکمه <strong>":button" </strong> کلیک کنید. <br> در زمان ثبت آدرس  مشتری حتما کشور مربوطه را انتخاب کنید. ',
     'pleaseWait' => 'لطفا منتظر بمانید',
+    'selectYourProfilePic' => 'تصویر پروفایل جدید خود را انتخاب کنید',
     'help-block'                            => array(
 
         'user'     => array(

@@ -20,8 +20,11 @@ interface UserRepositoryInterface extends BaseRepositoryInterface
 
     public function updateUser( $userID, $attributes );
 
-
     public function currentUser();
+
+    public function storeAvatar($userID,$imageFile);
+
+    public function removeAvatar($userID);
 
 
 } 

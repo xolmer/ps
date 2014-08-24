@@ -19,9 +19,9 @@
         </td>
     </tr>
     <tr>
-        <td>{{Lang::get('words.phone_number')}}</td>
+        <td>{{Lang::get('words.mobile_number')}}</td>
         <td>
-            {{$currentUser->phone_number}}
+            {{$currentUser->mobile_number}}
         </td>
     </tr>
     <tr>

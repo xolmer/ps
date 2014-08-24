@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 function toJalali($timestamp=null,$format = null){

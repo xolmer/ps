@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'dev' => array('saarang-mint'),
+	'dev' => array('saarang-mint','homestead'),
 	'staging' => array('box943.bluehost.com'),
 	'production' => array('')
 

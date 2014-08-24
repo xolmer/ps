@@ -29,7 +29,7 @@
                 <div class="col-sm-2">
 
                     <a href="#" class="profile-picture">
-                        <img src="assets/images/profile-picture.png" class="img-responsive img-circle">
+                        <img src="{{$currentUser->normal_avatar}}" class="img-responsive img-circle">
                     </a>
 
                 </div>
@@ -44,7 +44,7 @@
                                     <a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip"
                                        data-placement="top" data-original-title="Online"></a>
                                 </strong>
-                                <span><a href="#">Co-Founder at Laborator</a></span>
+                                {{--<span><a href="#">Co-Founder at Laborator</a></span>--}}
                             </div>
                         </li>
 

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('email_address');
 			$table->string('mobile_number');
 			$table->string('country_of_residence');
-			$table->string('avatar_link')->nullable();
+			$table->boolean('has_avatar')->default(false);
 			$table->boolean('is_active')->default(true);
             $table->string('timezone')->default('Asia/Kuala_Lumpur');
 			$table->timestamp('last_login')->nullable();

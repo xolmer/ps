@@ -10,7 +10,8 @@
         "laravel/framework": "4.2.*",
         "zizaco/entrust": "1.2.*",
         "way/generators": "~2.0",
-        "laracasts/validation": "~1.0"
+        "laracasts/validation": "~1.0",
+        "intervention/image" : "2.0.5"
 
     },
     "require-dev": {

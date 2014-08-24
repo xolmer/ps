@@ -61,5 +61,6 @@ return array(
     'update' => 'بروز رسانی',
     'changeProfilePic' => 'تغییر عکس پروفایل',
     'changePassword' => 'تغییر کلمه عبور',
-    'profile_color' => 'رنگ پروفایل'
+    'profile_color' => 'رنگ پروفایل',
+    'browse' => 'انتخاب فایل'
 );
