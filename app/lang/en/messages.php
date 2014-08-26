@@ -15,8 +15,11 @@ return array(
     'user' => array(
         'create-success' => 'حساب کاربری :user  با موفقیت  ساخته شد و در حال حاضر :state می باشد',
         'update-success' => 'اطلاعات :user با موفقیت به روز رسانی شد',
+        'avatar-update-success' => 'تصویر پروفایل شما با موفقیت تعویض شد',
+        'avatar-delete-success' => 'تصویر پروفایل شما به موفقیت حذف گردید',
+        'password-update-success' => 'کلمه عبور با موفقیت به روز رسانی شد',
     ),
     'customer' => array(
         'create-success' => 'تمامی اطلاعات مشتری جدید <strong>  ":customer" </strong> با موفیت ثبت شد'
-    )
+    ),
 );

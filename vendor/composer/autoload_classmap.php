@@ -468,6 +468,7 @@ return array(
     'UnsupportedOperationException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'UselessFileDetector' => $vendorDir . '/facebook/webdriver/lib/remote/UselessFileDetector.php',
     'User' => $baseDir . '/app/domain/Models/User.php',
+    'UserController' => $baseDir . '/app/xvc/controleurs/UserController.php',
     'UserTableSeeder' => $baseDir . '/app/database/seeds/UserTableSeeder.php',
     'UsersController' => $baseDir . '/app/xvc/controleurs/UsersController.php',
     'ViewHelpers' => $baseDir . '/app/tests/support/ViewHelpers.php',

@@ -14,7 +14,9 @@ namespace SaarangSlt\Validators;
 
 class BaseValidator extends \Laracasts\Validation\FormValidator{
 
+    protected $rules = array();
     protected $updateRules = array();
+    protected $messages = array();
     protected $updateMessages = array();
 
     public function validateUpdate($formData)

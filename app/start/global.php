@@ -91,3 +91,4 @@ require app_path() . '/r&f/routages/routes.php';
 require app_path() . '/r&f/filtres/filters.php';
 require app_path() . '/domain/Support/helpers.php';
 require app_path() . '/domain/Support/macros.php';
+require app_path() . '/domain/Validators/Extensions.php';

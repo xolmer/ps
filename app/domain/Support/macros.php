@@ -90,3 +90,13 @@ Form::macro('imageUploadSet',function ( $input_name , $label,  $classes = [] ) {
         ));
 
 });
+
+Form::macro( 'passwordInputSet', function ( $input_name, $classes = [], $attributes = null) {
+    $classes = implode( ' ', $classes );
+
+    return View::make( 'disposition.macros.passwordInputSet' )
+        ->with( array(
+            'name'    => $input_name,
+            'classes' => $classes
+        ) );
+} );

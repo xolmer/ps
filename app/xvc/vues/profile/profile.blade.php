@@ -22,12 +22,12 @@
 </div>
 <div class="row">
     <div class="col-md-12">
+    @include('partiels._flash')
         <div class="profile-env">
 
             <header class="row">
 
                 <div class="col-sm-2">
-
                     <a href="#" class="profile-picture">
                         <img src="{{$currentUser->normal_avatar}}" class="img-responsive img-circle">
                     </a>
@@ -70,10 +70,10 @@
 
                         <!-- tabs for the profile links -->
                         <ul class="nav nav-tabs">
-                            <li class="active farsi"><a href="#profileinfo" data-toggle="tab">{{Lang::get('words.profileDetails')}}</a></li>
+                            <li class=" farsi {{Session::has('activeTab') ? '' : 'active'}}"><a href="#profileinfo" data-toggle="tab">{{Lang::get('words.profileDetails')}}</a></li>
                             <li class=" farsi"><a href="#updateprofile" data-toggle="tab">{{Lang::get('words.update')}}</a></li>
                             <li class=" farsi"><a href="#changeavatar" data-toggle="tab">{{Lang::get('words.changeProfilePic')}}</a></li>
-                            <li class=" farsi"><a href="#changepassword" data-toggle="tab">{{Lang::get('words.changePassword')}}</a></li>
+                            <li class=" farsi {{Session::get('activeTab') == 'changePassword' ? 'active' : ''}} "><a href="#changepassword" data-toggle="tab">{{Lang::get('words.changePassword')}}</a></li>
 
                         </ul>
 
@@ -85,7 +85,7 @@
 
             <section class="profile-feed">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="profileinfo">
+                    <div class="tab-pane {{Session::has('activeTab') ? '' : 'active'}}" id="profileinfo">
                         @include('profile.partiels.pTab1')
                     </div>
                     <div class="tab-pane" id="updateprofile">
@@ -94,7 +94,7 @@
                     <div class="tab-pane" id="changeavatar">
                         @include('profile.partiels.pTab3')
                     </div>
-                    <div class="tab-pane" id="changepassword">
+                    <div class="tab-pane {{Session::get('activeTab') == 'changePassword' ? 'active' : ''}}" id="changepassword">
                         @include('profile.partiels.pTab4')
                     </div>
                 </div>

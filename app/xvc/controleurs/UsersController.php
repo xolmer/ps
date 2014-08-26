@@ -64,30 +64,4 @@ class UsersController extends \BaseController
     }
 
 
-    public function showProfile()
-    {
-
-        $currentUser = $this->user->currentUser();
-        return View::make('profile.profile')->with(array('currentUser' => $currentUser));
-    }
-
-
-    public function updateAvatar()
-    {
-        $avatarFile = Input::file('avatar');
-        $user = $this->user->currentUser();
-
-        $this->user->storeAvatar($user->id, $avatarFile);
-        return Redirect::back();
-
-    }
-
-
-    public function removeAvatar()
-    {
-        $user = $this->user->currentUser();
-        if ($user->has_avatar) {
-            $this->user->removeAvatar($user->id);
-        }
-    }
 } 

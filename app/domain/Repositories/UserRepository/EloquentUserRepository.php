@@ -12,6 +12,7 @@
 
 
 use SaarangSlt\Validators\UserValidator;
+use SaarangSlt\Validators\PasswordUpdateValidator;
 use Illuminate\Hashing\BcryptHasher;
 use SaarangSlt\Services\UserAvatarManager\UserAvatarManager as UserAvatarManager;
 
@@ -21,14 +22,16 @@ class EloquentUserRepository implements UserRepositoryInterface
     protected $userValidator;
     protected $hasher;
     protected $avatarManager;
+    private $passwordUpdateValidator;
 
 
-    public function __construct( UserValidator $userValidator, BcryptHasher $hasher, UserAvatarManager $avatarManager )
+    public function __construct( UserValidator $userValidator, BcryptHasher $hasher, UserAvatarManager $avatarManager, PasswordUpdateValidator $passwordUpdateValidator )
     {
         $this->userValidator = $userValidator;
         $this->hasher        = $hasher;
         $this->avatarManager = $avatarManager;
 
+        $this->passwordUpdateValidator = $passwordUpdateValidator;
     }
 
     public function all()
@@ -93,6 +96,13 @@ class EloquentUserRepository implements UserRepositoryInterface
     {
         $this->avatarManager->removeAvatar($userID);
         $this->currentUser()->update(array('has_avatar' => 0));
+    }
+
+    public function updateCurrentUsersPassword($user,$attributes){
+        $this->passwordUpdateValidator->validateCurrentUserPasswordUpdate($attributes);
+        $this->currentUser()->update(array('password'=> $this->hasher->make($attributes['password'])));
+
+
     }
 
 
