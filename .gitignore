@@ -1,5 +1,4 @@
 .idea
-gulp
 tests/_output/*
 vendor/.git
 .env.dev.php
