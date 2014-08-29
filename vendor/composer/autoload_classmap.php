@@ -47,6 +47,7 @@ return array(
     'LocalFileDetector' => $vendorDir . '/facebook/webdriver/lib/remote/LocalFileDetector.php',
     'Mail' => $baseDir . '/app/domain/Models/Mail.php',
     'MailAttachment' => $baseDir . '/app/domain/Models/MailAttachment.php',
+    'MailsController' => $baseDir . '/app/xvc/controleurs/MailsController.php',
     'MoveTargetOutOfBoundsException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'NoAlertOpenException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'NoCollectionException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
