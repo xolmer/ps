@@ -14,4 +14,13 @@ namespace SaarangSlt\Repositories\MailRepository;
 
 class EloquentMailRepository implements MailRepositoryInterface {
 
+    function all()
+    {
+        // TODO: Implement all() method.
+    }
+
+    function findById($id)
+    {
+        // TODO: Implement findById() method.
+    }
 }

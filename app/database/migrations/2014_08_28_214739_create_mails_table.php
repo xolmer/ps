@@ -14,7 +14,8 @@ class CreateMailsTable extends Migration {
 	{
 		Schema::create('mails', function(Blueprint $table)
 		{
-			$table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->integer('sender_id');
             $table->integer('reciever_id');
             $table->string('subject')->nullable();
@@ -22,6 +23,8 @@ class CreateMailsTable extends Migration {
             $table->boolean('is_read');
             $table->integer('priority');
 			$table->timestamps();
+
+            $table->index('reciever_id');
 		});
 	}
 
