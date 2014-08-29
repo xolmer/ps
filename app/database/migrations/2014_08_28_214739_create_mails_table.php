@@ -25,6 +25,7 @@ class CreateMailsTable extends Migration {
 			$table->timestamps();
 
             $table->index('reciever_id');
+            $table->index('sender_id');
 		});
 	}
 
