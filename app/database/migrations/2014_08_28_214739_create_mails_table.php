@@ -20,7 +20,8 @@ class CreateMailsTable extends Migration {
             $table->integer('reciever_id');
             $table->string('subject')->nullable();
             $table->text('body')->nullable();
-            $table->boolean('is_read');
+            $table->boolean('is_read')->default(false);;
+            $table->boolean('is_starred')->default(false);
             $table->integer('priority');
 			$table->timestamps();
 

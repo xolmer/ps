@@ -64,5 +64,6 @@ return array(
     'changeProfilePic' => 'تغییر عکس پروفایل',
     'changePassword' => 'تغییر کلمه عبور',
     'profile_color' => 'رنگ پروفایل',
-    'browse' => 'انتخاب فایل'
+    'browse' => 'انتخاب فایل',
+    'mails' => 'نامه ها'
 );
