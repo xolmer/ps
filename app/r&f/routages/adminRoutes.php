@@ -24,6 +24,13 @@ Route::group(array('prefix' => 'customers', 'before' => 'auth'), function () {
 
 });
 
+Route::group(['prefix'=>'mails','before' => 'auth'], function () {
+    Route::get('inbox',['as' => 'mails.inbox', 'uses'=>'MailsController@inbox']);
+    Route::get('sent',['as' => 'mails.sent', 'uses' => 'MailsController@sent']);
+    Route::get('test', function () {
+        return View::make('mails');
+    });
+});
 Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
 Route::post('changeavatar', array('as' => 'user.updateAvatar', 'uses' => 'UserController@updateAvatar'));
 Route::post('removeavatar', array('as' => 'user.removeAvatar', 'uses' => 'UserController@removeAvatar'));
