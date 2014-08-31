@@ -25,8 +25,8 @@ Route::group(array('prefix' => 'customers', 'before' => 'auth'), function () {
 });
 
 Route::group(['prefix'=>'mails','before' => 'auth'], function () {
-    Route::get('inbox',['as' => 'mails.inbox', 'uses'=>'MailsController@inbox']);
-    Route::get('sent',['as' => 'mails.sent', 'uses' => 'MailsController@sent']);
+    Route::get('inbox',['as' => 'showInbox', 'uses'=>'MailsController@inbox']);
+    Route::get('sent',['as' => 'showSentbox', 'uses' => 'MailsController@sent']);
     Route::get('test', function () {
         return View::make('mails');
     });

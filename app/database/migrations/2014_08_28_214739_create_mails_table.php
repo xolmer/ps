@@ -23,6 +23,7 @@ class CreateMailsTable extends Migration {
             $table->boolean('is_read')->default(false);;
             $table->boolean('is_starred')->default(false);
             $table->integer('priority');
+            $table->softDeletes();
 			$table->timestamps();
 
             $table->index('reciever_id');
