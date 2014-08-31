@@ -10,7 +10,11 @@ class Mail extends Eloquent {
 
     use SoftDeletingTrait;
     protected $dates = ['deleted_at'];
-    
-    
+
+
+    public function userMails(){
+        return $this->hasMany('UserMails');
+    }
+
 
 }

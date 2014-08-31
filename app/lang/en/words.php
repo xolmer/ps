@@ -65,5 +65,8 @@ return array(
     'changePassword' => 'تغییر کلمه عبور',
     'profile_color' => 'رنگ پروفایل',
     'browse' => 'انتخاب فایل',
-    'mails' => 'نامه ها'
+    'inbox' => 'صندوق دریافت',
+    'sentbox' => 'صندوق ارسال',
+    'compose' => 'نامه جدید'
+
 );

@@ -25,10 +25,11 @@ Route::group(array('prefix' => 'customers', 'before' => 'auth'), function () {
 });
 
 Route::group(['prefix'=>'mails','before' => 'auth'], function () {
-    Route::get('inbox',['as' => 'showInbox', 'uses'=>'MailsController@inbox']);
-    Route::get('sent',['as' => 'showSentbox', 'uses' => 'MailsController@sent']);
+    Route::get('inbox',['as' => 'mail.inbox', 'uses'=>'MailsController@showInbox']);
+    Route::get('sentbox',['as' => 'mail.sentbox', 'uses' => 'MailsController@showSentbox']);
+    Route::get('compose',['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
     Route::get('test', function () {
-        return View::make('mails');
+        return View::make('compose');
     });
 });
 Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
