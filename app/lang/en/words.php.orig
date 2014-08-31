@@ -69,9 +69,8 @@ return array(
     'changePassword' => 'تغییر کلمه عبور',
     'profile_color' => 'رنگ پروفایل',
     'browse' => 'انتخاب فایل',
+    'time_of' => 'به وقت'
     'inbox' => 'صندوق دریافت',
     'sentbox' => 'صندوق ارسال',
-    'compose' => 'نامه جدید',
-	'time_of' => 'به وقت'
-
+    'compose' => 'نامه جدید'
 );

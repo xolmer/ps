@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMailsTable extends Migration {
+class CreateUserMailsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,22 +12,18 @@ class CreateMailsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('mails', function(Blueprint $table)
+		Schema::create('user_mails', function(Blueprint $table)
 		{
             $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('sender_id');
-            $table->integer('reciever_id');
-            $table->string('subject')->nullable();
-            $table->text('body')->nullable();
-            $table->boolean('is_read')->default(false);;
+			$table->increments('id');
+            $table->integer('mail_id');
+            $table->integer('receiver_id');
+            $table->boolean('is_read')->default(false);
             $table->boolean('is_starred')->default(false);
-            $table->integer('priority');
             $table->softDeletes();
 			$table->timestamps();
 
             $table->index('reciever_id');
-            $table->index('sender_id');
 		});
 	}
 
@@ -39,7 +35,7 @@ class CreateMailsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('mails');
+		Schema::drop('user_mails');
 	}
 
 }
