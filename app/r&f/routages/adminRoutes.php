@@ -17,8 +17,7 @@ Route::group(array('prefix' => 'users', 'before' => 'auth'), function () {
 
 
 Route::group(array('prefix' => 'customers', 'before' => 'auth'), function () {
-
-
+    
     Route::get('createcustomer', array('as' => 'customer.create', 'uses' => 'CustomersController@create'));
     Route::post('createcustomer', array('as' => 'customer.store', 'uses' => 'CustomersController@store'));
 
