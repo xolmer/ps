@@ -81,7 +81,7 @@
                     <td>{{$user->mobile_number}}</td>
                     <td>{{$user->account_status}}</td>
                     <td>{{$user->timezone}}</td>
-                    <td>{{$user->last_login}}</td>
+                    <td>{{HTML::dateblock($user->last_login)}}</td>
                     <td>
                         <a class="btn btn-default btn-xs farsi btn-icon btn-block" href="{{URL::route('user.edit',array('id' => $user->id))}}">
                             <i class="fa fa-edit"></i>

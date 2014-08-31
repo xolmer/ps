@@ -156,3 +156,11 @@ ul.ui-autocomplete {
   margin-bottom: 0px; }
 .wizard-summary .row:first-child h3 {
   border-top-width: 1px; }
+
+.popover {
+  font-family: 'Nassim';
+  text-align: center; }
+
+.popover-title, .popover-content {
+  font-size: 12px;
+  font-family: 'Nassim'; }
