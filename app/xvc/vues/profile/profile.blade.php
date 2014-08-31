@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
+    <br/>
         <ol class="breadcrumb bc-2 farsi">
             <li>
                 <a href="{{URL::route('index')}}">
@@ -39,6 +40,7 @@
                     <ul class="profile-info-sections">
                         <li>
                             <div class="profile-name">
+
                                 <strong>
                                     <a href="#">{{$currentUser->full_name}}</a>
                                     <a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip"

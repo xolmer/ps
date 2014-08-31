@@ -100,3 +100,33 @@ Form::macro( 'passwordInputSet', function ( $input_name, $classes = [], $attribu
             'classes' => $classes
         ) );
 } );
+
+HTML::macro('dateblock', function($date){
+
+    $date = ($date) ?: \Carbon\Carbon::now();
+    $originalDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$date,'UTC');
+
+    $userTimezone = Auth::user()->timezone ;
+    $alternateTimezone = ($userTimezone == 'Asia/Kuala_Lumpur') ? 'Asia/Tehran' : 'Asia/Kuala_Lumpur' ;
+
+    //Date in user timezone
+    $originalDate->timezone = new DateTimeZone(Auth::user()->timezone);
+    $dateInUserTimezone = $originalDate->format(DEFAULTDATEFORMAT);
+    $dateInUserTimezoneFa = toJalali(strtotime($originalDate->format(MYSQLFORMAT)));
+    $userDateTitle = Lang::get('words.time_of') . ' ' . timezoneToCountry($userTimezone);
+    $alternateDateTitle = Lang::get('words.time_of') . ' ' . timezoneToCountry($alternateTimezone);
+
+    //Date in alternate timezone
+    $originalDate->timezone = new DateTimeZone($alternateTimezone);
+    $dateInAlternateTimezone = $originalDate->format(DEFAULTDATEFORMAT);
+    $dateInAlternateTimezoneFa = toJalali(strtotime($originalDate->format(MYSQLFORMAT)));
+
+    return View::make('partiels.date_block')->with(compact('dateInUserTimezone',
+        'dateInAlternateTimezone',
+        'dateInUserTimezoneFa',
+        'dateInAlternateTimezoneFa',
+        'userDateTitle',
+        'alternateDateTitle'
+        ));
+});
+

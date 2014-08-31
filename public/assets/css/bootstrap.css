@@ -9047,7 +9047,7 @@ button.close {
   content: " ";
   bottom: 1px;
   margin-left: -10px;
-  border-bottom-width: 0;
+  border-bottom-width: none;
   border-top-color: #ffffff;
 }
 .popover.right .arrow {

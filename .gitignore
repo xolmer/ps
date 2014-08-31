@@ -2,3 +2,5 @@
 tests/_output/*
 vendor/.git
 .env.dev.php
+public/assets/images/avatars/*.*
+!public/assets/images/avatars/default_*.jpg

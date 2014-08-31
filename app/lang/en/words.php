@@ -20,6 +20,10 @@ return array(
       'purple' => 'بنفش',
 
     ),
+    'countries' => array(
+      'malaysia' => 'مالزی',
+      'iran' => 'ایران'
+    ),
     'active'        => 'فعال',
     'inactive'      => 'غیر فعال',
     'username'      => 'نام کاربری',
@@ -64,5 +68,6 @@ return array(
     'changeProfilePic' => 'تغییر عکس پروفایل',
     'changePassword' => 'تغییر کلمه عبور',
     'profile_color' => 'رنگ پروفایل',
-    'browse' => 'انتخاب فایل'
+    'browse' => 'انتخاب فایل',
+    'time_of' => 'به وقت'
 );
