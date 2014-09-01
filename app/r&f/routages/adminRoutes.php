@@ -27,7 +27,7 @@ Route::group(['prefix'=>'mails','before' => 'auth'], function () {
     Route::get('sentbox',['as' => 'mail.sentbox', 'uses' => 'MailsController@showSentbox']);
     Route::get('compose',['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
     Route::get('test', function () {
-        return View::make('mails.compose');
+        return View::make('mails.sentbox');
     });
 });
 Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
