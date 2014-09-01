@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <ol class="breadcrumb bc-2 farsi">
             <li>
-                <a href="{{URL::route('index')}}">
+                <a href="{{Lang::get('words.inbox')}}">
                     <i class="entypo-home"></i>
                     {{Lang::get('ui.menu_items.home')}}
                 </a>
@@ -13,7 +13,7 @@
             <li class="active">
                 <a>
                     <i class="entypo-inbox"></i>
-                    {{Lang::get('mails.inbox')}}
+                    {{Lang::get('words.inbox')}}
                 </a>
             </li>
         </ol>

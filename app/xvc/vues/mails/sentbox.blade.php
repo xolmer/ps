@@ -13,7 +13,7 @@
             <li class="active">
                 <a>
                     <i class="entypo-paper-plane"></i>
-                    {{Lang::get('mails.sentbox')}}
+                    {{Lang::get('words.sentbox')}}
                 </a>
             </li>
         </ol>
@@ -22,12 +22,12 @@
 
 {{--Mail --Start--}}
 <div class="mail-env">
-<h2 class="farsi-content"> {{Lang::get('mails.sentbox')}} </h2>
+<h2 class="farsi-content"> {{Lang::get('words.sentbox')}} </h2>
         <hr/>
 	<!-- compose new email button -->
 	<div class="mail-sidebar-row visible-xs">
 		<a href="mailbox-compose.html" class="btn btn-success btn-icon btn-block">
-			Compose Mail
+			{{Lang::get('words.compose_mail')}}
 			<i class="entypo-pencil"></i>
 		</a>
 	</div>

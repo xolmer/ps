@@ -3,7 +3,7 @@
 		<!-- compose new email button -->
 		<div class="mail-sidebar-row hidden-xs">
 			<a href="mailbox-compose.html" class="btn btn-success btn-icon btn-block">
-				{{Lang::get('mails.compose')}}
+				{{Lang::get('words.compose_mail')}}
 				<i class="entypo-pencil"></i>
 			</a>
 		</div>
@@ -13,20 +13,20 @@
 			<li >
 				<a href="#">
 					<span class="badge badge-danger pull-right">6</span>
-					{{Lang::get('mails.inbox')}}
+					{{Lang::get('words.inbox')}}
 				</a>
 			</li>
 
 			<li>
 				<a href="#">
 					<span class="badge badge-gray pull-right">1</span>
-					{{Lang::get('mails.sentbox')}}
+					{{Lang::get('words.sentbox')}}
 				</a>
 			</li>
 
 			<li>
 				<a href="#">
-					{{Lang::get('mails.trash')}}
+					{{Lang::get('words.trash')}}
 				</a>
 			</li>
 		</ul>

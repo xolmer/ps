@@ -67,6 +67,7 @@ return array(
     'browse' => 'انتخاب فایل',
     'inbox' => 'صندوق دریافت',
     'sentbox' => 'صندوق ارسال',
-    'compose' => 'نامه جدید'
+    'compose_mail' => 'نامه جدید',
+    'trash' => 'سطل زباله'
 
 );
