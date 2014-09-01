@@ -25,7 +25,10 @@ class EloquentMailRepository implements MailRepositoryInterface {
     }
     function sendNewEmail($senderID, $subject, $body, array $receivers)
     {
-
+            echo "subject is $subject , body is $body and recipeinds are <br>";
+            foreach($receivers as $rc){
+                echo $rc . '<br>';
+            }
     }
 
 
