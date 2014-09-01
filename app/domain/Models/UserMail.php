@@ -2,7 +2,7 @@
 
 
 
-class UserMails extends Eloquent {
+class UserMail extends Eloquent {
 
     protected $table = "user_mails";
     

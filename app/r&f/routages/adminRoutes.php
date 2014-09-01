@@ -12,12 +12,11 @@ Route::group(array('prefix' => 'users', 'before' => 'auth'), function () {
     Route::get('edituser/{id}', array('as' => 'user.edit', 'uses' => 'UsersController@edit'));
     Route::post('edituser/{id}', array('as' => 'user.update', 'uses' => 'UsersController@update'));
 
-
 });
 
 
 Route::group(array('prefix' => 'customers', 'before' => 'auth'), function () {
-    
+
     Route::get('createcustomer', array('as' => 'customer.create', 'uses' => 'CustomersController@create'));
     Route::post('createcustomer', array('as' => 'customer.store', 'uses' => 'CustomersController@store'));
 
@@ -28,7 +27,7 @@ Route::group(['prefix'=>'mails','before' => 'auth'], function () {
     Route::get('sentbox',['as' => 'mail.sentbox', 'uses' => 'MailsController@showSentbox']);
     Route::get('compose',['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
     Route::get('test', function () {
-        return View::make('compose');
+        return View::make('mails.compose');
     });
 });
 Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));

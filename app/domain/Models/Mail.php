@@ -13,7 +13,7 @@ class Mail extends Eloquent {
 
 
     public function userMails(){
-        return $this->hasMany('UserMails');
+        return $this->hasMany('UserMail');
     }
 
 
