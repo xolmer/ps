@@ -17,7 +17,7 @@ class CreateUserMailsTable extends Migration {
             $table->engine = 'InnoDB';
 			$table->increments('id');
             $table->integer('mail_id');
-            $table->integer('receiver_id');
+            $table->integer('reciever_id');
             $table->boolean('is_read')->default(false);
             $table->boolean('is_starred')->default(false);
             $table->softDeletes();

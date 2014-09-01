@@ -4,12 +4,12 @@
 
 class UserMail extends Eloquent {
 
-    protected $table = "user_mails";
-    
-    protected $guarded = array();
-
     use SoftDeletingTrait;
     protected $dates = ['deleted_at'];
+    protected $table = "user_mails";
+
+    protected $guarded = array();
+
 
     public function mail(){
         return $this->belongsTo('Mail');

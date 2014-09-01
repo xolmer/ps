@@ -3,7 +3,7 @@
 		<!-- compose new email button -->
 		<div class="mail-sidebar-row hidden-xs">
 			<a href="mailbox-compose.html" class="btn btn-success btn-icon btn-block">
-				Compose Mail
+				{{Lang::get('mails.compose')}}
 				<i class="entypo-pencil"></i>
 			</a>
 		</div>
