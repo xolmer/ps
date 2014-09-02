@@ -2,3 +2,4 @@
 tests/_output/*
 vendor/.git
 .env.dev.php
+.DS_Store

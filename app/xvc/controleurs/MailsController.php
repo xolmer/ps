@@ -18,10 +18,10 @@ class MailsController extends \BaseController {
      * @var MailRepositoryInterface
      */
 
-    private $mail;
-    private $user;
+    private $mailRepository;
+    private $userRepositroy;
 
-    public function __construct(MailRepositoryInterface $mail, UserRepositoryInterface $user){
+    public function __construct(MailRepositoryInterface $mailRepository, UserRepositoryInterface $userRepositroy){
 
         $this->mail = $mailRepository;
         $this->user = $userRepositroy;
