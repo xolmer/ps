@@ -5,9 +5,9 @@
             Lang::get('ui.buttons.addCustomerContactDetails')))}}
             <div class="help-block farsi">
                 <ul>
-                    <li>{{Lang::get('phrases.help-block.user.phone_number.1')}}</li>
-                    <li>{{Lang::get('phrases.help-block.user.phone_number.2')}}</li>
-                    <li>{{Lang::get('phrases.help-block.user.phone_number.3')}}</li>
+                    <li>{{Lang::get('phrases.help-block.user.mobile_number.1')}}</li>
+                    <li>{{Lang::get('phrases.help-block.user.mobile_number.2')}}</li>
+                    <li>{{Lang::get('phrases.help-block.user.mobile_number.3')}}</li>
                 </ul>
             </div>
         </p>
