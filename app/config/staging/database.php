@@ -55,9 +55,9 @@ return array(
         'mysql' => array(
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'themecos_v3',
-            'username'  => 'themecos',
-            'password'  => 'Saarang@733',
+            'database'  => $_ENV['DB_NAME'],
+            'username'  => $_ENV['DB_USER'],
+            'password'  => $_ENV['DB_PASSWORD'],
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
