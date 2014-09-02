@@ -45,17 +45,8 @@
     			<!-- links -->
     			<div class="mail-links">
 
-    				<a href="#" class="btn btn-default">
-    					<i class="entypo-cancel"></i>
-    				</a>
-
-    				<a href="#" class="btn btn-default btn-icon">
-    					Draft
-    					<i class="entypo-tag"></i>
-    				</a>
-
     				<a class="btn btn-success btn-icon">
-    					Send
+    					{{Lang::get('ui.buttons.send_mail')}}
     					<i class="entypo-mail"></i>
     				</a>
 
@@ -68,8 +59,23 @@
     			<form method="post" role="form">
                     <label for="to">To :</label>
                     <div class="form-group">
-                        <input type="text" value="" id="to" tabindex="1" class=" tagsinput" />
+                            <select name="test" class="select2" multiple>
+                                <option value="3" >Soroosh</option>
+                                <option value="2" >Kaveh</option>
+                                <option value="5" >Peiman</option>
+                                <option value="1" >Mostafa</option>
+                                <option value="4" >khahareh tt khanom</option>
+                                <option value="12" >Sina</option>
+                                <option value="11" >Pejman</option>
+                                <option value="13" >tt khanom</option>
+                            </select>
+
                     </div>
+
+                    {{--<div class="form-group">--}}
+
+                        {{--<input type="text" value="" id="to" tabindex="1" class=" tagsinput" />--}}
+                    {{--</div>--}}
 
 
 

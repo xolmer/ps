@@ -29,7 +29,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('sentbox', ['as' => 'mail.sentbox', 'uses' => 'MailsController@showSentbox']);
         Route::get('compose', ['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
         Route::get('test', function () {
-            return View::make('compose');
+            return View::make('mails.compose');
         });
     });
 
