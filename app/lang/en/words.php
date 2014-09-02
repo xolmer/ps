@@ -71,7 +71,9 @@ return array(
     'browse' => 'انتخاب فایل',
     'inbox' => 'صندوق دریافت',
     'sentbox' => 'صندوق ارسال',
-    'compose' => 'نامه جدید',
-	'time_of' => 'به وقت'
+	'time_of' => 'به وقت',
+    'compose_mail' => 'نامه جدید',
+    'trash' => 'سطل زباله'
+
 
 );

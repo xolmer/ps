@@ -1,0 +1,9 @@
+.idea
+tests/_output/*
+vendor/.git
+.env.dev.php
+<<<<<<< HEAD
+public/assets/images/avatars/*.*
+=======
+.DS_Store
+>>>>>>> mails_2

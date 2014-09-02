@@ -20,6 +20,8 @@
 <script src="/assets/js/neon-custom.js"></script>
 <script src="/assets/js/neon-demo.js"></script>
 <script src="/parsian/js/parsian.js"></script>
+<script src="/assets/js/select2/select2.min.js"></script>
+<script src="/assets/js/bootstrap-tagsinput.min.js"></script>
 
 @section('pageScripts')
 @show
