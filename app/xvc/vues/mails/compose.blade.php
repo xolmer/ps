@@ -41,7 +41,6 @@
     			<div class="mail-title">
     				{{Lang::get('words.compose_mail')}} <i class="entypo-pencil"></i>
     			</div>
-
     			<!-- links -->
     			<div class="mail-links">
 
@@ -52,7 +51,6 @@
 
     			</div>
     		</div>
-
 
     		<div class="mail-compose">
 
