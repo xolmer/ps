@@ -23,6 +23,7 @@ return array(
         'confirmAndCreateCustomer'  => 'تایید و ایجاد مشتری',
         'updateAvatar' => 'بروزرسانی عکس پروفایل',
         'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
+        'send_mail' => 'ارسال نامه',
     ),
 
     //For Side menu and breadcrumbs and page headings

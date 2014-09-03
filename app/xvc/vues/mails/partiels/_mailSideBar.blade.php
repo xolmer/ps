@@ -1,4 +1,4 @@
-	<div class="mail-sidebar" style="height: 1359px;">
+	<div class="mail-sidebar farsi_content" style="height: 1359px;">
 
 		<!-- compose new email button -->
 		<div class="mail-sidebar-row hidden-xs">
