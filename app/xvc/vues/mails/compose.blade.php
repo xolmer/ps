@@ -22,11 +22,11 @@
 
 {{--Mail --Start--}}
 <div class="mail-env">
-<h2 class="farsi-content"> {{Lang::get('words.compose_mail')}} </h2>
+<h2 class="farsi-content farsi-content"> {{Lang::get('words.compose_mail')}} </h2>
         <hr/>
 	<!-- compose new email button -->
-	<div class="mail-sidebar-row visible-xs">
-		<a href="mailbox-compose.html" class="btn btn-success btn-icon btn-block">
+	<div class="mail-sidebar-row visible-xs ">
+		<a href="{{URL::route('mail.compose')}}" class="btn btn-success btn-icon btn-block farsi-content">
 			{{Lang::get('words.compose_mail')}}
 			<i class="entypo-pencil"></i>
 		</a>
@@ -35,37 +35,34 @@
 
 	<!-- Mail Body -->
 	<div class="mail-body">
-
     		<div class="mail-header">
     			<!-- title -->
-    			<div class="mail-title">
+    			<div class="mail-title farsi-content">
     				{{Lang::get('words.compose_mail')}} <i class="entypo-pencil"></i>
     			</div>
+    			{{Form::open(['route'=>'mail.compose'])}}
     			<!-- links -->
     			<div class="mail-links">
-
-    				<a class="btn btn-success btn-icon">
+    				<button type="submit" class="btn btn-success btn-icon">
     					{{Lang::get('ui.buttons.send_mail')}}
     					<i class="entypo-mail"></i>
-    				</a>
-
+    				</button>
     			</div>
     		</div>
 
     		<div class="mail-compose">
 
-    			<form method="post" role="form">
                     <label for="to">To :</label>
                     <div class="form-group">
-                            <select name="test" class="select2" multiple>
-                                <option value="3" >Soroosh</option>
-                                <option value="2" >Kaveh</option>
-                                <option value="5" >Peiman</option>
-                                <option value="1" >Mostafa</option>
-                                <option value="4" >khahareh tt khanom</option>
-                                <option value="12" >Sina</option>
-                                <option value="11" >Pejman</option>
-                                <option value="13" >tt khanom</option>
+                            <select name="recipients[]" class="select2" multiple>
+                                <option value="Soroosh" >Soroosh</option>
+                                <option value="Kaveh" >Kaveh</option>
+                                <option value="Peiman" >Peiman</option>
+                                <option value="Mostafa" >Mostafa</option>
+                                <option value="khahareh tt khanom" >khahareh tt khanom</option>
+                                <option value="Sina" >Sina</option>
+                                <option value="Pejman" >Pejman</option>
+                                <option value="tt khanom" >tt khanom</option>
                             </select>
 
                     </div>
@@ -75,29 +72,16 @@
                         {{--<input type="text" value="" id="to" tabindex="1" class=" tagsinput" />--}}
                     {{--</div>--}}
 
-
-
-    				<div class="form-group hidden">
-    					<label for="cc">CC:</label>
-    					<input type="text" class="form-control" id="cc" tabindex="2" />
-    				</div>
-
-    				<div class="form-group hidden">
-    					<label for="bcc">BCC:</label>
-    					<input type="text" class="form-control" id="bcc" tabindex="2" />
-    				</div>
-
     				<div class="form-group">
     					<label for="subject">Subject:</label>
-    					<input type="text" class="form-control" id="subject" tabindex="1" />
+    					<input type="text" name="subject" class="form-control" id="subject" tabindex="1" />
     				</div>
-
 
     				<div class="compose-message-editor">
-    					<textarea class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+    					<textarea class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="body" id="sample_wysiwyg"></textarea>
     				</div>
 
-    			</form>
+    			{{Form::close()}}
 
     		</div>
 

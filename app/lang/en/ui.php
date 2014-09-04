@@ -24,6 +24,7 @@ return array(
         'updateAvatar' => 'بروزرسانی عکس پروفایل',
         'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
         'send_mail' => 'ارسال نامه',
+        'compose_mail' => 'نامه جدید',
     ),
 
     //For Side menu and breadcrumbs and page headings
