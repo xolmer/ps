@@ -1,5 +1,6 @@
 @extends('disposition.principal')
 @section('content')
+
 <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb bc-2 farsi">
@@ -78,9 +79,8 @@
     				</div>
 
     				<div class="compose-message-editor">
-    					<textarea class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="body" id="sample_wysiwyg"></textarea>
+    					<textarea class="form-control wysihtml5 "  name="body" id="body"></textarea>
     				</div>
-
     			{{Form::close()}}
 
     		</div>

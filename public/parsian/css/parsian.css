@@ -164,3 +164,13 @@ ul.ui-autocomplete {
 .popover-title, .popover-content {
   font-size: 12px;
   font-family: 'Nassim'; }
+
+ul.wysihtml5-toolbar li a[title="Insert image"] {
+  display: none;
+}
+ul.wysihtml5-toolbar li a[title="Insert link"] {
+    display: none;
+}
+ul.wysihtml5-toolbar li.dropdown {
+  display: none;
+}

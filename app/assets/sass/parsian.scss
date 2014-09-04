@@ -144,3 +144,8 @@ ul.ui-autocomplete {
   font-family: 'Nassim';
 }
 
+
+
+//Editor
+ul.wysihtml5-toolbar li a[title="Insert image"] { display: none; }
+ul.wysihtml5-toolbar li.dropdown { display: none; }
