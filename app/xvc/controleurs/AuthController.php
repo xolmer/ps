@@ -36,10 +36,10 @@ class AuthController extends BaseController{
 
             Auth::loginUsingId($user->getKey());
             Event::fire('user.logged_in',$user);
-            return Redirect::to('/');
+            return Redirect::route('index');
         }
         $errorMessage = 'اطلاعات کاربری صیحیح نمی باشد. لطفا مجددا نام کاربری و کلمه عبور را وارد نمایید.';
-        return Redirect::back()->with('loginError',$errorMessage)->withInput();
+        return Redirect::route('index')->with('loginError',$errorMessage)->withInput();
     }
 
     public function logout()

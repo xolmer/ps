@@ -16,5 +16,5 @@ require('helpers.php');
 
 
 Route::get( '/', array('as' => 'index','uses' => 'AuthController@index'));
-Route::post('login', array('as' => 'signin', 'uses' => 'AuthController@authenticate'));
+Route::any('login', array('as' => 'signin', 'uses' => 'AuthController@authenticate'));
 Route::get('logout',array('as' => 'logout' , 'uses' => 'AuthController@logout'));
