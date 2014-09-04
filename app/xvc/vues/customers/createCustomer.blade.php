@@ -96,5 +96,7 @@
 @section('pageScripts')
 
 <script src="/assets/js/libs/knockoutjs.js"></script>
-
+<script>
+    createCustomer();
+</script>
 @stop

@@ -2,6 +2,7 @@
 //User can create unlimited number of accounts for each the customer.
 
 
+module.exports = function(){
 $(document).ready(function () {
 
     if (typeof ko == 'undefined'){
@@ -202,3 +203,5 @@ $(document).ready(function () {
 
 
 })
+
+}

@@ -8,7 +8,7 @@
 //Create customer page consists of 3 wizard steps and validation rules specified here pertain tot he
 //first step of the wizard only.
 
-
+module.exports = function() {
 $("#create-customer-form").validate({
     errorElement: 'div',
     wrapper: 'div',
@@ -45,3 +45,4 @@ $("#create-customer-form").validate({
     }
 
 });
+}

@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="/assets/css/neon-forms.css">
 <link rel="stylesheet" href="/assets/css/neon-rtl.css">
 <link rel="stylesheet" href="/assets/css/custom.css">
+@unless(Auth::user()->theme_color == 'default')
 <link rel="stylesheet" href="/assets/css/skins/{{Auth::user()->theme_color}}.css">
+@endunless
 <link rel="stylesheet" href="/assets/css/font-icons/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/parsian/css/parsian.css">

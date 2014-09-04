@@ -1,0 +1,1 @@
+createCustomer = require('./PageSpecificScripts/CreateCustomer/index.js');
