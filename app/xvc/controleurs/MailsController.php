@@ -27,6 +27,10 @@ class MailsController extends \BaseController {
         $this->user = $userRepositroy;
     }
 
+    public function postCompose(){
+        return Input::all();
+    }
+
 
 
 }

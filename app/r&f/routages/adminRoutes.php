@@ -28,6 +28,8 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('inbox', ['as' => 'mail.inbox', 'uses' => 'MailsController@showInbox']);
         Route::get('sentbox', ['as' => 'mail.sentbox', 'uses' => 'MailsController@showSentbox']);
         Route::get('compose', ['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
+        Route::post('compose', ['as' => 'mail.compose', 'uses' => 'MailsController@postCompose']);
+        Route::get('trash', ['as' => 'mail.trash', 'uses' => 'MailsController@showTrash']);
         Route::get('test', function () {
             return View::make('mails.compose');
         });
