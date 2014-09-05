@@ -63,6 +63,7 @@ return array(
     '3' => '۳',
     '4' => '۴',
     '5' => '۵',
+    '6' => '۶',
     'profileDetails' => 'اطلاعات پروفایل',
     'update' => 'بروز رسانی',
     'changeProfilePic' => 'تغییر عکس پروفایل',
@@ -73,7 +74,8 @@ return array(
     'sentbox' => 'صندوق ارسال',
 	'time_of' => 'به وقت',
     'compose_mail' => 'نامه جدید',
-    'trash' => 'سطل زباله'
+    'trash' => 'سطل زباله',
+    'customer_senders' => 'فرستنده های مشتری'
 
 
 );

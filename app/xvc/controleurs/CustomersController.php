@@ -57,7 +57,8 @@ class CustomersController extends \BaseController {
         $accounts = Input::get('accounts');
         $contacts = Input::get('contacts');
         $addresses = Input::get('addresses');
-        $this->customer->createNewCustomer($personalDetails,$accounts,$contacts,$addresses);
+        $senders = Input::get('senders');
+        $this->customer->createNewCustomer($personalDetails,$accounts,$contacts,$addresses,$senders);
         return array('status' => 'success','message' => Lang::get('messages.customer.create-success', array('customer' => 'محمد رضا سلطانی')));
 	}
 

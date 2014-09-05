@@ -20,16 +20,15 @@ class CreateCustomerSendersTable extends Migration
             $table->integer('customer_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('full_name');
             $table->string('fathers_name');
             $table->string('national_id')->nullable();
             $table->string('passport_number')->nullable();
-            $table->integer('country_of_residence_id');
+            $table->integer('country_id');
             $table->string('mobile_number')->nullable();;
             $table->string('phone_number')->nullable();;
             $table->string('email_address')->nullable();
             $table->string('identity_link')->nullable();
-
+            $table->timestamps();
             $table->index('customer_id');
 
         });

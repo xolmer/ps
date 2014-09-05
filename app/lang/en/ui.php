@@ -21,6 +21,7 @@ return array(
         'addCustomerContactDetails' => 'اضافه کردن اطاعات تماس',
         'addCustomerAddressDetails' => 'اضافه کردن آدرس',
         'confirmAndCreateCustomer'  => 'تایید و ایجاد مشتری',
+        'addCustomerSender' => 'معرفی فرستنده جدید',
         'updateAvatar' => 'بروزرسانی عکس پروفایل',
         'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
         'send_mail' => 'ارسال نامه',

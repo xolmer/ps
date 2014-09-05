@@ -25,7 +25,7 @@ class EloquentCustomerRepository implements CustomerRepositoryInterface
         // TODO: Implement findById() method.
     }
 
-    public function createNewCustomer( $customerAttributes, $accounts, $contactsDetails, $addresses )
+    public function createNewCustomer( $customerAttributes, $accounts, $contactsDetails, $addresses,$senders )
     {
         $customer = new \Customer();
         $customer->fill( $customerAttributes );
@@ -34,6 +34,7 @@ class EloquentCustomerRepository implements CustomerRepositoryInterface
         $this->addAccountToCustomer( $customer->getKey(), $accounts );
         $this->addContactDetailsToCustomer( $customer->getKey(), $contactsDetails );
         $this->addAddressToCustomer( $customer->getKey(), $addresses );
+        $this->addSenderToCustomer( $customer->getKey(), $senders);
 
 
     }
@@ -68,6 +69,18 @@ class EloquentCustomerRepository implements CustomerRepositoryInterface
             $newAddress->fill( $address );
             $newAddress->customer_id = $customerID;
             $newAddress->save();
+        }
+    }
+
+    public function addSenderToCustomer( $customerID , $senders){
+        if(empty($senders)) return;
+        foreach($senders as $sender){
+
+            $newSender = new \CustomerSender();
+            $newSender->fill( $sender);
+            $newSender->customer_id = $customerID;
+            $newSender->save();
+
         }
     }
 

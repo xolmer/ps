@@ -1,151 +1,178 @@
-<div class="wizard-summary">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="center farsi-content ">{{Lang::get('words.personalDetails')}}</h3>
-            <table class="table farsi table-bordered table-condensed">
-                <thead>
-                <tr>
-                    <th>{{Lang::get('words.first_name')}}</th>
-                    <th>{{Lang::get('words.last_name')}}</th>
-                    <th>{{Lang::get('words.fathers_name')}}</th>
-                    <th>{{Lang::get('words.email_address')}}</th>
-                    <th>{{Lang::get('words.national_id')}}</th>
-                    <th>{{Lang::get('words.passport_number')}}</th>
-                    <th>{{Lang::get('words.country_of_residence')}}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td data-bind="displayIfExists:personalDetails.first_name"></td>
-                    <td data-bind="displayIfExists:personalDetails.last_name"></td>
-                    <td data-bind="displayIfExists:personalDetails.fathers_name"></td>
-                    <td data-bind="displayIfExists:personalDetails.email_address"></td>
-                    <td data-bind="displayIfExists:personalDetails.national_id"></td>
-                    <td data-bind="displayIfExists:personalDetails.passport_number"></td>
-                    <td data-bind="displayIfExists:personalDetails.country"></td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-    <!-- ko if:accounts().length -->
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="center farsi-content ">{{Lang::get('words.bankAccountDetails')}}</h3>
-
-            <table class="table table-condensed farsi table-bordered">
-                <thead>
-                <tr>
-                    <th>{{Lang::get('words.country')}}</th>
-                    <th>{{Lang::get('words.bank_name')}}</th>
-                    <th>{{Lang::get('words.account_holder_name')}}</th>
-                    <th>{{Lang::get('words.account_number')}}</th>
-                    <th>{{Lang::get('words.remarks')}}</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach:accounts">
-                <tr>
-                    <td data-bind="displayIfExists:country"></td>
-                    <td data-bind="displayIfExists:bank_name"></td>
-                    <td data-bind="displayIfExists:account_holder_name"></td>
-                    <td data-bind="displayIfExists:account_number"></td>
-                    <td data-bind="displayIfExists:remarks"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- /ko -->
-    <!--ko if:contacts().length-->
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="center farsi-content ">{{Lang::get('words.contactDetails')}}</h3>
-
-            <table class="table farsi table-bordered">
-                <thead>
-                <tr>
-                    <th>{{Lang::get('words.country')}}</th>
-                    <th>{{Lang::get('words.mobile_number')}}</th>
-                    <th>{{Lang::get('words.phone_number')}}</th>
-                    <th>{{Lang::get('words.fax_number')}}</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach:contacts">
-                <tr>
-                    <td data-bind="displayIfExists:country"></td>
-                    <td data-bind="displayIfExists:mobile_number"></td>
-                    <td data-bind="displayIfExists:phone_number"></td>
-                    <td data-bind="displayIfExists:fax_number"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!--/ko-->
-    <!-- ko if:addresses().length -->
-    <div class="row">
-        <div class="col-md-12">
-
-            <table class="table farsi table-bordered">
-                <caption>
-                    <h3 class="center farsi-content ">{{Lang::get('words.addressDetails')}}</h3>
-                </caption>
-                <thead>
-                <tr>
-                    <th>{{Lang::get('words.country')}}</th>
-                    <th>{{Lang::get('words.address')}}</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach:addresses">
-                <tr>
-                    <td data-bind="displayIfExists:label"></td>
-                    <td data-bind="displayIfExists:address"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- /ko -->
-</div>
-
 <div class="row">
-    <div class="col-md-12">
-        <div class="center" style="min-height:200px;">
-            <br/>
+    <div class="col-md-4">
+        <p class="farsi">
+            {{Lang::get('phrases.associateSenderCustomerText',array('button' =>
+            Lang::get('ui.buttons.addCustomerSender')))}}
+        </p>
 
-            <div data-bind="visible:isSaving" style="margin:100px;">
-                <img src="/assets/images/preloaders/circlesMedium.gif" alt=""/>
-                <br/>
+        <button class="btn btn-primary farsi btn-icon" data-bind="event: { click: addNewSender}">
+            <i class="entypo-list-add" style="font-size: 14px;"></i>
+            {{Lang::get('ui.buttons.addCustomerSender')}}
+        </button>
+    </div>
+    <div class="col-md-8">
 
-                <p class="farsi">{{Lang::get('phrases.pleaseWait')}}</p>
-            </div>
 
-            <!--     ko if:isSaved -->
-            <div>
-                <!-- ko if:responseStatus()=="success" -->
-                    <div class="alert alert-success farsi" >
-                        <span data-bind="html:responseMessage"></span>
-                        <button type="button" class="close" data-dismiss="alert" area-hidden="true">x</button>
+        <div data-bind="foreach: senders">
+
+            <div class="panel panel-primary" data-bind="attr: {id : id}">
+                <div class="panel-heading">
+                    <div class="panel-title ltr" style="float: left"><span data-bind="text: label"></span></div>
+                    <div class="panel-options" style="float: right">
+                        <a href="#" data-bind="event : {click : $parent.removeSender}" ><i class="entypo-cancel"></i></a>
+
                     </div>
-                <!-- /ko -->
-
-                <!-- ko if:responseStatus()=="failed" -->
-                <div class="alert alert-danger farsi" >
-                    <span data-bind="html:responseMessage"></span>
-                    <button type="button" class="close" data-dismiss="alert" area-hidden="true">x</button>
                 </div>
-                <!-- /ko -->
-            </div>
-            <!-- /ko -->
+                <div class="panel-body">
 
-            <!-- ko ifnot:customerCreated -->
-            <button class="btn btn-primary btn-lg farsi btn-icon" id="ccFormSubmitButton"
-                    data-bind="event: { click: ccFormSubmitHandler}">
-                <i class="entypo-list-add" style="font-size: 14px;"></i>
-                {{Lang::get('ui.buttons.confirmAndCreateCustomer')}}
-            </button>
-            <!-- /ko -->
+                    <div class="form-group form-groups-compact {{Form::groupIsInvalid('country_of_residence')}}">
+                        {{Form::label('country', Lang::get('words.country'), array('class' =>
+                        'col-sm-3
+                        control-label
+                        farsi'))}}
+                        <div class="col-sm-8">
+                            {{Form::select('country',
+                            DB::table('countries')->lists('country_name','id'),'158', array('class' => 'form-control
+                            ltr latin','id' => 'country',
+                            'data-bind' => "value:country_id",
+                            'placeholder'=>Lang::get('words.country')))}}
+                            <div class="help-block">
+                                {{Form::error('country')}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--First Name--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.first_name'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'first_name required form-control ltr latin', 'data-bind' =>
+                            'value:first_name, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'first_name[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.first_name_required'),
+                            'placeholder'=>   Lang::get('words.first_name')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--Last Name--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.last_name'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'last_name required form-control ltr latin', 'data-bind' =>
+                            'value:last_name, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'last_name[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.last_name_required'),
+                            'placeholder'=>   Lang::get('words.last_name')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--Fathers Name--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.fathers_name'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'fathers_name required form-control ltr latin', 'data-bind' =>
+                            'value:fathers_name, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'fathers_name[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.fathers_name_required'),
+                            'placeholder'=>   Lang::get('words.fathers_name')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--National id--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.national_id'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'national_id required form-control ltr latin', 'data-bind' =>
+                            'value:national_id, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'national_id[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.national_id_required'),
+                            'placeholder'=>   Lang::get('words.national_id')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--passport number--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.passport_number'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'passport_number  form-control ltr latin', 'data-bind' =>
+                            'value:passport_number, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'national_id[\' + id +  \']\'}',
+                            'placeholder'=>   Lang::get('words.passport_number')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--phone number--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.phone_number'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'phone_number required form-control ltr latin', 'data-bind' =>
+                            'value:phone_number, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'phone_number[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.phone_number_required'),
+                            'placeholder'=>   Lang::get('words.phone_number')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    {{--mobile number--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.mobile_number'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'mobile_number required form-control ltr latin', 'data-bind' =>
+                            'value:mobile_number, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'mobile_number[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.mobile_number_required'),
+                            'placeholder'=>   Lang::get('words.mobile_number')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--Email address--}}
+                    <div class="form-group form-groups-compact farsi ">
+                        {{Form::label(null, Lang::get('words.email_address'), array('class' => 'col-sm-3
+                        control-label'))}}
+                        <div class="col-sm-8">
+                            {{Form::text(null, null, array('class' => 'email_address required form-control ltr latin', 'data-bind' =>
+                            'value:email_address, valueUpdate: "afterkeydown",
+                            attr: { \'name\': \'email_address[\' + id +  \']\'}',
+                            'data-msg-required' => Lang::get('phrases.validation.email_address_required'),
+                            'placeholder'=>   Lang::get('words.email_address')))}}
+                            <div class="help-block">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
+<br/>
+

@@ -50,8 +50,15 @@
                     {{Lang::get('words.addressDetails')}}
                 </a>
             </li>
-            <li class="">
+
+            <li>
                 <a href="#tab5" data-toggle="tab"><span>{{Lang::get('words.5')}}</span>
+                      {{Lang::get('words.customer_senders')}}
+                </a>
+
+            </li>
+            <li class="">
+                <a href="#tab6" data-toggle="tab"><span>{{Lang::get('words.6')}}</span>
                     {{Lang::get('words.reviewAndCreateCustomer')}}
                 </a>
             </li>
@@ -73,6 +80,9 @@
             </div>
             <div class="tab-pane" id="tab5">
                 @include('customers.partiels.ccTab5')
+            </div>
+            <div class="tab-pane" id="tab6">
+                @include('customers.partiels.ccTab6')
             </div>
             <ul class="pager wizard farsi">
                 <li class="previous">
