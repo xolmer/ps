@@ -17,7 +17,7 @@ class CreateMailsTable extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('sender_id');
-            $table->integer('reciever_id');
+            $table->integer('receiver_id');
             $table->string('subject')->nullable();
             $table->text('body')->nullable();
             $table->boolean('is_read')->default(false);;
@@ -26,7 +26,7 @@ class CreateMailsTable extends Migration {
             $table->softDeletes();
 			$table->timestamps();
 
-            $table->index('reciever_id');
+            $table->index('receiver_id');
             $table->index('sender_id');
 		});
 	}
