@@ -14,7 +14,7 @@
             <li class="active">
                 <a>
                     <i class="entypo-mail"></i>
-                    {{Lang::get('words.compose_mail')}}
+                    {{Lang::get('ui.menu_items.compose_mail')}}
                 </a>
             </li>
         </ol>

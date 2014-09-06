@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="/assets/js/select2/select2-bootstrap.css">
-<link rel="stylesheet" href="/assets/js/select2/select2.css">
-<link rel="stylesheet" href="/assets/js/selectboxit/jquery.selectBoxIt.css">
-<link rel="stylesheet" href="/assets/js/wysihtml5/bootstrap-wysihtml5.css">
-
 <script src="/assets/js/jquery-1.11.0.min.js"></script>
 
 <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

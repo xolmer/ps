@@ -13,7 +13,7 @@
             <li class="active">
                 <a>
                     <i class="entypo-inbox"></i>
-                    {{Lang::get('words.inbox')}}
+                    {{Lang::get('ui.menu_items.inbox')}}
                 </a>
             </li>
         </ol>
@@ -22,7 +22,7 @@
 
 {{--Mail --Start--}}
 <div class="mail-env">
-<h2 class="farsi-content"> {{Lang::get('mails.inbox')}} </h2>
+<h2 class="farsi-content"> {{Lang::get('words.inbox')}} </h2>
         <hr/>
 	<!-- compose new email button -->
 	<div class="mail-sidebar-row visible-xs">
