@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddUniqueIdToMailAttachmentsTable' => $baseDir . '/app/database/migrations/2014_09_06_081035_add_uniqueId_to_mail_attachments_table.php',
     'AuthController' => $baseDir . '/app/xvc/controleurs/AuthController.php',
     'BaseController' => $baseDir . '/app/xvc/controleurs/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
@@ -2688,6 +2689,7 @@ return array(
     'UselessFileDetector' => $vendorDir . '/facebook/webdriver/lib/remote/UselessFileDetector.php',
     'User' => $baseDir . '/app/domain/Models/User.php',
     'UserController' => $baseDir . '/app/xvc/controleurs/UserController.php',
+    'UserMail' => $baseDir . '/app/domain/Models/UserMail.php',
     'UserTableSeeder' => $baseDir . '/app/database/seeds/UserTableSeeder.php',
     'UsersController' => $baseDir . '/app/xvc/controleurs/UsersController.php',
     'ViewHelpers' => $baseDir . '/app/tests/support/ViewHelpers.php',

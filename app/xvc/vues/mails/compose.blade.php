@@ -41,7 +41,8 @@
     			<div class="mail-title farsi-content">
     				{{Lang::get('words.compose_mail')}} <i class="entypo-pencil"></i>
     			</div>
-    			{{Form::open(['route'=>'mail.compose'])}}
+        {{Form::open(['route'=>'mail.compose'])}}
+        {{Form::hidden('uniqid',uniqid(),['id'=>'uniqid'])}}
     			<!-- links -->
     			<div class="mail-links">
     				<button type="submit" class="btn btn-success btn-icon">
