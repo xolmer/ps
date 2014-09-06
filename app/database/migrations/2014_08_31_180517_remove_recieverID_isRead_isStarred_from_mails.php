@@ -28,7 +28,7 @@ class RemoveRecieverIDIsReadIsStarredFromMails extends Migration {
 	{
 		Schema::table('mails', function(Blueprint $table)
 		{
-			
+            $table->string(['receiver_id', 'is_read','is_starred']);
 		});
 	}
 

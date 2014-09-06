@@ -27,8 +27,20 @@ class MailsController extends \BaseController {
         $this->user = $userRepositroy;
     }
 
+    public function showInbox(){
+        return View::make('mails.inbox');
+    }
+    public function showSentbox(){
+        return View::make('mails.sentbox');
+    }
+    public function showCompose(){
+        return View::make('mails.compose');
+    }
     public function postCompose(){
         return Input::all();
+    }
+    public function showTrash(){
+
     }
 
 
