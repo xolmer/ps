@@ -54,9 +54,9 @@
 
     		<div class="mail-compose">
 
-                    <label for="to">To :</label>
+                    <label class="farsi" for="to">{{Lang::get('words.to')}} :</label>
                     <div class="form-group">
-                            <select name="recipients[]" class="select2" multiple>
+                            <select name="recipients[]" class="select2 ltr" multiple>
                                 <option value="Soroosh" >Soroosh</option>
                                 <option value="Kaveh" >Kaveh</option>
                                 <option value="Peiman" >Peiman</option>
@@ -75,7 +75,7 @@
                     {{--</div>--}}
 
     				<div class="form-group">
-    					<label for="subject">Subject:</label>
+    					<label class="farsi" for="subject">{{Lang::get('words.subject')}}:</label>
     					<input type="text" name="subject" class="form-control" id="subject" tabindex="1" />
     				</div>
 

@@ -73,7 +73,9 @@ return array(
     'sentbox' => 'صندوق ارسال',
 	'time_of' => 'به وقت',
     'compose_mail' => 'نامه جدید',
-    'trash' => 'سطل زباله'
+    'trash' => 'سطل زباله',
+    'to' => 'گیرنده',
+    'subject' => 'موضوع'
 
 
 );

@@ -14,7 +14,24 @@ use SaarangSlt\Repositories\BaseRepositoryInterface;
 
 interface MailRepositoryInterface extends BaseRepositoryInterface{
 
+    public function sendNewEmail($senderID, $subject, $body, array $receivers);
 
+    /**
+     * Deletes an email from users mailbox
+     * @param $userID
+     * @param $mailID Mail to be deleted
+     * @return mixed
+     */
+    public function deleteMail($userID, $mailID);
+
+
+    public function markAsRead($userID,$mailID);
+
+
+    public function markAsStarred($userID,$mailID);
+
+
+    public function addAttachment($userID,$uniqueID,$attachment);
 
 
 } 
