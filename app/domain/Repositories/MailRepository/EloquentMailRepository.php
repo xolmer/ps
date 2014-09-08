@@ -23,4 +23,32 @@ class EloquentMailRepository implements MailRepositoryInterface {
     {
         // TODO: Implement findById() method.
     }
+    function sendNewEmail($senderID, $subject, $body, array $receivers)
+    {
+
+    }
+
+
+    function deleteMail($userID, $mailID)
+    {
+
+    }
+
+
+    function markAsRead($userID,$mailID)
+    {
+
+    }
+
+
+    function markAsStarred($userID,$mailID)
+    {
+
+    }
+
+
+    function addAttachment($userID,$uniqueID,$attachment)
+    {
+
+    }
 }

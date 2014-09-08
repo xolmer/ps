@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <a href="mailbox.html">
+                <a href="{{URL::route('mail.inbox')}}">
                     <i class="entypo-mail"></i>
                     صندوق پستی
                 </a>
@@ -50,7 +50,7 @@
 
 </ul>
 
-<ul class="user-info pull-left pull-right-xs pull-none-xsm" style="display:none;"> 
+<ul class="user-info pull-left pull-right-xs pull-none-xsm" style="display:none;">
 
 <!-- Raw Notifications -->
 <li class="notifications dropdown">
