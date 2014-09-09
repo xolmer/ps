@@ -45,7 +45,7 @@
         {{Form::hidden('uniqid',uniqid(),['id'=>'uniqid'])}}
     			<!-- links -->
     			<div class="mail-links">
-    				<button type="submit" class="btn btn-success btn-icon">
+    				<button type="submit" class="btn btn-success btn-icon farsi">
     					{{Lang::get('ui.buttons.send_mail')}}
     					<i class="entypo-mail"></i>
     				</button>
@@ -55,16 +55,17 @@
     		<div class="mail-compose">
 
                     <label class="farsi" for="to">{{Lang::get('words.to')}} :</label>
-                    <div class="form-group">
-                            <select name="recipients[]" class="select2 ltr" multiple>
-                                <option value="Soroosh" >Soroosh</option>
-                                <option value="Kaveh" >Kaveh</option>
-                                <option value="Peiman" >Peiman</option>
-                                <option value="Mostafa" >Mostafa</option>
-                                <option value="khahareh tt khanom" >khahareh tt khanom</option>
-                                <option value="Sina" >Sina</option>
-                                <option value="Pejman" >Pejman</option>
-                                <option value="tt khanom" >tt khanom</option>
+                    <div class="form-group farsi">
+                            <select name="recipients[]" class="select2 ltr farsi" multiple>
+                                <option value="1" >سروش کشتکاران</option>
+                                <option value="2" >محمدرضا سلطانی</option>
+                                <option value="3" >رضا کاویانی</option>
+                                <option value="4" >مصطفی بهمنی</option>
+                                <option value="5" >محسن رضایی</option>
+                                <option value="6" >سلیم سبکپا</option>
+                                <option value="7" >نیما شمس</option>
+                                <option value="8" >کاوه یغمایی</option>
+                                
                             </select>
 
                     </div>

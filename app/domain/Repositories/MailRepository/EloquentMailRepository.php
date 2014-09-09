@@ -14,6 +14,10 @@ namespace SaarangSlt\Repositories\MailRepository;
 
 class EloquentMailRepository implements MailRepositoryInterface {
 
+   
+    
+   
+
     function all()
     {
         // TODO: Implement all() method.
@@ -23,13 +27,31 @@ class EloquentMailRepository implements MailRepositoryInterface {
     {
         // TODO: Implement findById() method.
     }
-    function sendNewEmail($senderID, $subject, $body, array $receivers)
+    function storeNewMail($senderID, $subject, $body, array $receivers)
     {
-            echo "subject is $subject , body is $body and recipeinds are <br>";
-            foreach($receivers as $rc){
-                echo $rc . '<br>';
-            }
+        $newMail = \MailMessage::create(array(
+            'sender_id' => $senderID,
+            'subject' => $subject,
+            'body' => $body
+        ));
+        
+        $receiversArray = [];
+        foreach($receivers as $index => $receiverID ){
+            $receiversArray[$index] = new \UserMail(['receiver_id' => $receiverID]);
+        }
+        $newMail->receivers()->saveMany($receiversArray);
+
+    
+
     }
+
+    public function addRecipientToMail($mailID,$recipientID){
+            \UserMail::create(array(
+                'receiver_id' => $recipientID,
+                'mail_id' => $mailID
+            ));
+    }
+
 
 
     function deleteMail($userID, $mailID)

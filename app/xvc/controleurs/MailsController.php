@@ -36,14 +36,15 @@ class MailsController extends \BaseController {
     }
     public function postCompose(){
         extract(Input::all());
-
-        return     $this->mail->sendNewEmail($this->user->currentUser()->id,$subject,$body,$recipients);
-        
+        $this->mail->storeNewMail($this->user->currentUser()->id,$subject,$body,$recipients);
+        return 'all good';
     }
     public function showTrash(){
 
     }
-
+    
+    
+    
 
 
 }
