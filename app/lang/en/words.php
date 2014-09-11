@@ -77,7 +77,11 @@ return array(
     'trash' => 'سطل زباله',
     'customer_senders' => 'فرستنده های مشتری',
     'to' => 'گیرنده',
-    'subject' => 'موضوع'
+    'subject' => 'موضوع',
+    'priority' => 'اهمیت',
+    'normal-priority' => 'معمولی',
+    'high-priority' => 'مهم',
+    'very-high-priority' => 'خیلی مهم'
 
 
 );

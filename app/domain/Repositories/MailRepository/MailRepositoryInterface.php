@@ -14,7 +14,7 @@ use SaarangSlt\Repositories\BaseRepositoryInterface;
 
 interface MailRepositoryInterface extends BaseRepositoryInterface{
 
-    public function storeNewMail($senderID, $subject, $body, array $receivers);
+    public function storeNewMail($senderID, $subject, $body,$priority, array $receivers);
 
     public function deleteMail($userID, $mailID);
 

@@ -14,13 +14,7 @@ gulp.task('sass', function(){
     .pipe(gulp.dest('../public/parsian/css'))
 });
 
-//gulp.task('concatFormValidators',function(){
-//
-//        gulp.src('../app/assets/javascript/**/*.js')
-//            .pipe(concat('parsian.js'))
-//            .pipe(gulp.dest('../public/parsian/js/'))
-//
-//});
+
 
 gulp.task('uglify', function() {
     gulp.src('../public/parsian/js/parsian.js')

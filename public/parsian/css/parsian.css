@@ -169,6 +169,15 @@ ul.ui-autocomplete {
   font-size: 12px;
   font-family: 'Nassim'; }
 
+.mail-env .mail-body .mail-compose .form-group input#subject {
+  border: 1px solid #ebebeb;
+  padding-right: 10px; }
+.mail-env .mail-body .mail-compose .form-group label {
+  position: static; }
+
+.send-mail-button {
+  font-size: 15px !important; }
+
 ul.wysihtml5-toolbar li a[title="Insert image"] {
   display: none; }
 
