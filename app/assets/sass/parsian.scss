@@ -19,6 +19,11 @@
   font-family: "Nassim";
 }
 
+.select2-results {
+     font-family: "Nassim";
+     font-size : 15px;         
+}
+
 .latin {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size : 14px;
@@ -144,3 +149,9 @@ ul.ui-autocomplete {
   font-family: 'Nassim';
 }
 
+
+
+//Editor
+ul.wysihtml5-toolbar li a[title="Insert image"] { display: none; }
+ul.wysihtml5-toolbar li a[title="Insert link"] { display: none; }
+ul.wysihtml5-toolbar li.dropdown { display: none; }

@@ -33,7 +33,7 @@ class CreateCustomersTable extends Migration {
 	}
 
 	/**
-	 * Reverse the migrations.
+	 * Reverse the migrations.o
 	 *
 	 * @return void
 	 */

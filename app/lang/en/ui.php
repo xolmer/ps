@@ -36,6 +36,10 @@ return array(
         'edit_user'       => 'ویرایش اطلاعات کاربر',
         'create_customer' => 'معرفی مشتری جدید',
         'profile'         => 'پروفایل کاربری',
+        'inbox' => 'صندوق دریافت',
+        'sentbox' => 'صندوق ارسال',
+        'compose_mail' => 'نامه جدید',
+        'trash' => 'سطل زباله'
 
     )
 

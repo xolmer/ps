@@ -14,12 +14,10 @@ use SaarangSlt\Repositories\UserRepository\UserRepositoryInterface;
 class MailsController extends \BaseController {
 
 
-    /**
-     * @var MailRepositoryInterface
-     */
 
-    private $mailRepository;
-    private $userRepositroy;
+
+    private $mail;
+    private $user;
 
     public function __construct(MailRepositoryInterface $mailRepository, UserRepositoryInterface $userRepositroy){
 
@@ -27,10 +25,26 @@ class MailsController extends \BaseController {
         $this->user = $userRepositroy;
     }
 
-    public function postCompose(){
-        return Input::all();
+    public function showInbox(){
+        return View::make('mails.inbox');
     }
+    public function showSentbox(){
+        return View::make('mails.sentbox');
+    }
+    public function showCompose(){
+        return View::make('mails.compose');
+    }
+    public function postCompose(){
+        extract(Input::all());
+        $this->mail->storeNewMail($this->user->currentUser()->id,$subject,$body,$recipients);
+        return 'all good';
+    }
+    public function showTrash(){
 
+    }
+    
+    
+    
 
 
 }

@@ -2,20 +2,16 @@
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
-
-class UserMail extends Eloquent {
+class MailMessage extends Eloquent {
 
     use SoftDeletingTrait;
     protected $dates = ['deleted_at'];
-    protected $table = "user_mails";
-
+    protected $table = "mails";
     protected $guarded = array();
 
-
-    public function mail(){
-        return $this->belongsTo('Mail');
+    public function receivers(){
+        return $this->hasMany('UserMail','receiver_id');
     }
 
-    
 
 }

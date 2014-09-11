@@ -75,7 +75,9 @@ return array(
 	'time_of' => 'به وقت',
     'compose_mail' => 'نامه جدید',
     'trash' => 'سطل زباله',
-    'customer_senders' => 'فرستنده های مشتری'
+    'customer_senders' => 'فرستنده های مشتری',
+    'to' => 'گیرنده',
+    'subject' => 'موضوع'
 
 
 );

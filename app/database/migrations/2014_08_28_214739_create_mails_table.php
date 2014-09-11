@@ -17,16 +17,20 @@ class CreateMailsTable extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('sender_id');
+<<<<<<< HEAD
             $table->integer('receiver_id');
+=======
+>>>>>>> mails
             $table->string('subject')->nullable();
             $table->text('body')->nullable();
-            $table->boolean('is_read')->default(false);;
-            $table->boolean('is_starred')->default(false);
             $table->integer('priority');
             $table->softDeletes();
 			$table->timestamps();
+<<<<<<< HEAD
 
             $table->index('receiver_id');
+=======
+>>>>>>> mails
             $table->index('sender_id');
 		});
 	}

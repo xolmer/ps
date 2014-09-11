@@ -13,7 +13,7 @@
             <li class="active">
                 <a>
                     <i class="entypo-paper-plane"></i>
-                    {{Lang::get('words.sentbox')}}
+                    {{Lang::get('ui.menu_items.sentbox')}}
                 </a>
             </li>
         </ol>

@@ -12,3 +12,7 @@
 @endunless
 <link rel="stylesheet" href="/assets/css/font-icons/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/parsian/css/parsian.css">
+<link rel="stylesheet" href="/assets/js/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="/assets/js/select2/select2.css">
+<link rel="stylesheet" href="/assets/js/selectboxit/jquery.selectBoxIt.css">
+<link rel="stylesheet" href="/assets/js/wysihtml5/bootstrap-wysihtml5.css">
