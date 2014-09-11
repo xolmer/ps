@@ -77,8 +77,9 @@
 
     				<div class="form-group">
     					<label class="farsi" for="subject">{{Lang::get('words.subject')}}:</label>
-    					<input type="text" name="subject" class="form-control" id="subject" tabindex="1" />
+    					<input type="text" name="subject" class="form-control" id="subject" tabindex="1" />    					
     				</div>
+    				
 
     				<div class="compose-message-editor">
     					<textarea class="form-control wysihtml5 "  name="body" id="body"></textarea>

@@ -172,5 +172,8 @@ ul.ui-autocomplete {
 ul.wysihtml5-toolbar li a[title="Insert image"] {
   display: none; }
 
+ul.wysihtml5-toolbar li a[title="Insert link"] {
+  display: none; }
+
 ul.wysihtml5-toolbar li.dropdown {
   display: none; }
