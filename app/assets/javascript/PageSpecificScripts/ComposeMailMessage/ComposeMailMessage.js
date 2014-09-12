@@ -11,6 +11,10 @@ module.exports = function () {
             $('input#priority').val($(this).data('priority'));
         });
 
+        $('select[name="recipients[]"]').change(function(){
+            $(this).validate();
+
+        });
 
         $('#compose_mail_form').validate({
             errorElement: 'div',

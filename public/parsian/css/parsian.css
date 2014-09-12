@@ -180,6 +180,12 @@ ul.ui-autocomplete {
 .send-mail-button {
   font-size: 15px !important; }
 
+.select2-container {
+  position: static; }
+
+.select2-container-multi .select2-choices {
+  position: static; }
+
 ul.wysihtml5-toolbar li a[title="Insert image"] {
   display: none; }
 
