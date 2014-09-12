@@ -36,7 +36,7 @@
 
     <!-- Mail Body -->
     <div class="mail-body">
-        {{Form::open(['route'=>'mail.compose'])}}
+        {{Form::open(['route'=>'mail.compose','id' => 'compose_mail_form'])}}
         {{Form::hidden('uniqid',uniqid(),['id'=>'uniqid'])}}
         {{Form::hidden('priority',1,['id'=>'priority'])}}
 
