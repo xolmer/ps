@@ -72,4 +72,24 @@ class EloquentMailRepository implements MailRepositoryInterface {
     {
 
     }
+
+    public function getUserReceivedMails($userID)
+    {
+        return \UserMail::where('receiver_id',$userID)->get();
+    }
+
+    public function getUserSentMails($userID)
+    {
+        // TODO: Implement getUserSentMails() method.
+    }
+
+    public function getUserDeletedMails($userID)
+    {
+        // TODO: Implement getUserDeletedMails() method.
+    }
+
+    public function getUserUnreadCount($userID)
+    {
+        // TODO: Implement getUserUnreadCount() method.
+    }
 }

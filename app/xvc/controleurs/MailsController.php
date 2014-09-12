@@ -26,7 +26,8 @@ class MailsController extends \BaseController {
     }
 
     public function showInbox(){
-        return View::make('mails.inbox');
+        $mailMessages =  $this->mail->getUserReceivedMails(Auth::user()->id);
+        return View::make('mails.inbox')->with('mails' , $mailMessages);
     }
     public function showSentbox(){
         return View::make('mails.sentbox');

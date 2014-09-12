@@ -13,7 +13,31 @@ class UserMail extends Eloquent {
 
 
     public function mail(){
-        return $this->belongsTo('Mail');
+        return $this->belongsTo('MailMessage');
+    }
+
+    public function getSubjectAttribute(){
+        return $this->mail->subject;
+    }
+
+    public function getBodyAttribute()
+    {
+        return $this->mail->body;
+    }
+
+    public function getPriorityAttribute(){
+        return $this->mail->priority;
+    }
+    public function getGistAttribute(){
+        return Str::limit($this->body);
+    }
+
+    public function getSenderAttribute(){
+        return $this->mail->sender;
+    }
+
+    public function getSenderNameAttribute(){
+        return $this->sender->full_name;
     }
 
     

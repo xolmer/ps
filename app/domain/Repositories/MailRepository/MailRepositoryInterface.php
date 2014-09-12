@@ -23,6 +23,16 @@ interface MailRepositoryInterface extends BaseRepositoryInterface{
     public function markAsStarred($userID,$mailID);
 
     public function addAttachment($userID,$uniqueID,$attachment);
+
+    public function getUserReceivedMails($userID);
+
+    public function getUserSentMails($userID);
+
+    public function getUserDeletedMails($userID);
+
+    public function getUserUnreadCount($userID);
+
+
     
 
 

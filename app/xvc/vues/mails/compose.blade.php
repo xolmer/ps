@@ -93,13 +93,13 @@
 
                         <div class="btn-group farsi button-group-radio" data-toggle="buttons">
                             <button type="button" class="btn btn-default btn-sm" data-priority="3">
-                                {{Lang::get('words.very-high-priority')}}
+                                {{Lang::get('words.priorities.3')}}
                             </button>
                             <button type="button" class="btn btn-default btn-sm" data-priority="2">
-                                {{Lang::get('words.high-priority')}}
+                                {{Lang::get('words.priorities.2')}}
                             </button>
                             <button type="button" class="btn btn-default btn-sm active" data-priority="1">
-                                {{Lang::get('words.normal-priority')}}
+                                {{Lang::get('words.priorities.1')}}
                             </button>
                         </div>
                     </div>

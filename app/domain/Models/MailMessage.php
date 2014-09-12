@@ -13,5 +13,9 @@ class MailMessage extends Eloquent {
         return $this->hasMany('UserMail','mail_id');
     }
 
+    public function sender(){
+        return $this->belongsTo('User','sender_id');
+    }
+
 
 }
