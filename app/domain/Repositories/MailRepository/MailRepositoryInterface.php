@@ -24,7 +24,7 @@ interface MailRepositoryInterface extends BaseRepositoryInterface{
 
     public function addAttachment($userID,$uniqueID,$attachment);
     
-    public function addRecipientToMail($mailID,$recipientID);
+
 
 
 } 

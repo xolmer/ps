@@ -10,7 +10,7 @@ class MailMessage extends Eloquent {
     protected $guarded = array();
 
     public function receivers(){
-        return $this->hasMany('UserMail','receiver_id');
+        return $this->hasMany('UserMail','mail_id');
     }
 
 

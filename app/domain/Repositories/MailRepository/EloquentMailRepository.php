@@ -35,7 +35,7 @@ class EloquentMailRepository implements MailRepositoryInterface {
             'priority' => $priority,
             'body' => $body
         ));
-        
+        $newMail->save();
         $receiversArray = [];
         foreach($receivers as $index => $receiverID ){
             $receiversArray[$index] = new \UserMail(['receiver_id' => $receiverID]);
@@ -46,12 +46,7 @@ class EloquentMailRepository implements MailRepositoryInterface {
 
     }
 
-    public function addRecipientToMail($mailID,$recipientID){
-            \UserMail::create(array(
-                'receiver_id' => $recipientID,
-                'mail_id' => $mailID
-            ));
-    }
+
 
 
 
