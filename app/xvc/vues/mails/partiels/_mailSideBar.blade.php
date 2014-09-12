@@ -1,5 +1,6 @@
 	<div class="mail-sidebar farsi" style="height: 1359px;">
 
+		@if(!Route::is('mail.compose'))
 		<!-- compose new email button -->
 		<div class="mail-sidebar-row hidden-xs">
 			<a href="{{URL::route('mail.compose')}}" class=" btn btn-success btn-icon btn-block farsi">
@@ -7,6 +8,7 @@
 				<i class="entypo-pencil"></i>
 			</a>
 		</div>
+		@endif
 
 		<!-- menu -->
 		<ul class="mail-menu">
