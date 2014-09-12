@@ -171,7 +171,9 @@ ul.ui-autocomplete {
 
 .mail-env .mail-body .mail-compose .form-group input#subject {
   border: 1px solid #ebebeb;
-  padding-right: 10px; }
+  padding-right: 10px;
+  position: static;
+  z-index: auto; }
 .mail-env .mail-body .mail-compose .form-group label {
   position: static; }
 

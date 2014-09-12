@@ -22,6 +22,7 @@
 
 {{--Mail --Start--}}
 <div class="mail-env">
+ @include('partiels._flash')
 <h2 class="farsi-content"> {{Lang::get('words.inbox')}} </h2>
         <hr/>
 	<!-- compose new email button -->

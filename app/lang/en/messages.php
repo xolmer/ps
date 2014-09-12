@@ -22,4 +22,7 @@ return array(
     'customer' => array(
         'create-success' => 'تمامی اطلاعات مشتری جدید <strong>  ":customer" </strong> با موفیت ثبت شد'
     ),
+    'mails' => array(
+        'send-mail-success' => 'نامه شما با موفقیت ارسال شد'
+    )
 );

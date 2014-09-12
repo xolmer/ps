@@ -36,8 +36,11 @@ class MailsController extends \BaseController {
     }
     public function postCompose(){
         extract(Input::all());
+        
         $this->mail->storeNewMail($this->user->currentUser()->id,$subject,$body,$priority,$recipients);
-        return 'all good';
+        
+        Flash::success(Lang::get('messages.mails.send-mail-success'));
+        return Redirect::route('mail.inbox');
     }
     public function showTrash(){
 
