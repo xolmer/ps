@@ -27,7 +27,7 @@ interface TodoRepositoryInterface extends BaseRepositoryInterface{
      * @param $task
      * @return mixed
      */
-    public function check($task);
+    public function check($todoID,$isDone);
 
 
     /**

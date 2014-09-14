@@ -21,9 +21,9 @@ class TodosController extends \BaseController {
     }
     public function postCheck()
     {
-
-        $task = $this->todoRepo->findById(Input::get('task'));
-        $this->todoRepo->check($task);
+        $todoID = Input::get('todo_id');
+        $isDone = Input::get('checked') == 'true' ? true : false;
+        $this->todoRepo->check($todoID,$isDone);
     }
     public function delete()
     {

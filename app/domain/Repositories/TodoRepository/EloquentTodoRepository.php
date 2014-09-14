@@ -50,14 +50,11 @@ class EloquentTodoRepository implements TodoRepositoryInterface {
     /**
      * Check the Task as completed.
      */
-    public function check($task)
+    public function check($todoID,$isDone)
     {
-        $done = $task->done ? false : true;
-        $task->done = $done;
-        $task->save();
-        return Redirect::back()->send();
+        $this->findById($todoID)->update(['done' => $isDone]);
     }
-    
+
     /**
      * @param $user
      * @return mixed

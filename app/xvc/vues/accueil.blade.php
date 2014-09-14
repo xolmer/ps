@@ -1,5 +1,4 @@
 @extends('disposition.principal')
-
 @section('content')
 <div class="row">
 
@@ -55,17 +54,17 @@
 
         <div class="tile-content">
 
-            {{Form::open(['route'=>'todos.create'])}}
+            {{Form::open(['route'=>'todos.create','data-remote'])}}
                 <input type="text" name="newTask" class="form-control" placeholder="مورد جدید" />
             {{Form::close()}}
 
             <ul class="todo-list">
 
                 @foreach($todos as $todo)
-                    <li>
-                {{Form::open(['route'=>'todos.check'])}}
+                    <li data-todo-id="{{$todo->id}}">
+                {{Form::open(['route'=>'todos.check','data-todo'])}}
                         <div class="checkbox checkbox-replace color-white ">
-                            <input name="task" value="{{$todo->id}}" type="checkbox" onclick="this.form.submit()" {{$todo->done ? 'checked' : ''}}/>
+                            <input name="task" value="{{$todo->id}}" type="checkbox" {{$todo->done ? 'checked' : ''}}/>
                             {{Form::hidden('task',$todo->id)}}
                             <label>{{$todo->title}}</label>
                         </div>
@@ -433,4 +432,51 @@
 
 </div>
 </div>
+@stop
+
+@section('pageScripts')
+<script>
+    $(document).ready(function(){
+
+    $('.todo-list').on('mouseup','.cb-wrapper',function(){
+        var todoID = $(this).parents('li').data('todo-id');
+        var url = '{{URL::route('todos.check')}}';
+        var checkedStatus = !$(this).parent().hasClass('checked');
+        console.log($(this).parent());
+        $.post(url , {todo_id : todoID, checked : checkedStatus });
+    });
+});
+
+$(document).ready(function(){
+        $('form[data-remote]').on('submit', function(e) {
+            var form = $(this);
+            var method = form.find('input[name="_method"]').val() || 'POST';
+            var url = form.prop('action');
+
+    //        $('#loading-image').show();
+            $.ajax({
+                type: method,
+                url: url,
+                data: form.serialize(),
+                success: function() {
+                    $todo_tasks = $("#todo_tasks");
+                    var newTodo = $todo_tasks.find('input[type="text"]').val();
+                    if($.trim(newTodo).length)
+                    {
+                        var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+newTodo+'</label></div></li>');
+                        $todo_tasks.find('input[type="text"]').val('');
+
+                        $todo_entry.prependTo($todo_tasks.find('.todo-list'));
+                        $todo_entry.hide().slideDown('fast');
+                        replaceCheckboxes();
+                    }
+                }
+             });
+
+        e.preventDefault();
+        });
+
+	});
+
+</script>
 @stop
