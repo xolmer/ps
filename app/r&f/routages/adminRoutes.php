@@ -35,10 +35,18 @@ Route::group(array('before' => 'auth'), function () {
         });
     });
 
+    Route::group(['prefix' => 'todos'], function () {
+        Route::post('create',['as' => 'todos.create','uses' => 'TodosController@postCreate']);
+        Route::post('check',['as' => 'todos.check','uses' => 'TodosController@postCheck']);
+        Route::post('create',['as' => 'todos.delete','uses' => 'TodosController@postDelete']);
+
+    });
+
 
     Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
     Route::post('changeavatar', array('as' => 'user.updateAvatar', 'uses' => 'UserController@updateAvatar'));
     Route::post('removeavatar', array('as' => 'user.removeAvatar', 'uses' => 'UserController@removeAvatar'));
     Route::post('updatepassword', array('as' => 'user.updatePassword', 'uses' => 'UserController@updateCurrentUserPassword'));
+
 
 });
