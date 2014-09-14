@@ -12,7 +12,10 @@
 namespace SaarangSlt\Repositories\TodoRepository;
 
 
-class EloquentMailRepository implements TodoRepositoryInterface {
+
+use Illuminate\Support\Facades\Redirect;
+
+class EloquentTodoRepository implements TodoRepositoryInterface {
 
    
     
@@ -25,39 +28,44 @@ class EloquentMailRepository implements TodoRepositoryInterface {
 
     function findById($id)
     {
-        // TODO: Implement findById() method.
-    }
 
+        return \Todo::findOrFail($id);
+
+
+    }
     /**
-     * Create a Todo Task
+     * @param $task
+     * @param $user_id
+     * @return mixed
      */
-    public function create()
+    public function create($task,$user_id)
     {
-        // TODO: Implement create() method.
+        $newMail = \Todo::create(array(
+            'title' => $task,
+            'user_id' => $user_id
+        ));
+        return Redirect::back()->send();
     }
 
     /**
      * Check the Task as completed.
      */
-    public function done()
+    public function check($task)
     {
-        // TODO: Implement done() method.
+        $done = $task->done ? false : true;
+        $task->done = $done;
+        $task->save();
+        return Redirect::back()->send();
     }
-
+    
     /**
-     * Uncheck the completed Task
+     * @param $user
+     * @return mixed
      */
-    public function undone()
+    public function delete($user)
     {
-        // TODO: Implement undone() method.
-    }
-
-    /**
-     * Delete the Task
-     */
-    public function delete()
-    {
-        // TODO: Implement delete() method.
+        $user->todos()->where('done',true)->delete();
+        return Redirect::back()->send();
     }
 
 

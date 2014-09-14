@@ -1,4 +1,5 @@
 @extends('disposition.principal')
+
 @section('content')
 <div class="row">
 
@@ -40,7 +41,7 @@
 <hr/>
 <div class="row farsi">
 <div class="col-sm-3">
-   {{Form::open()}}
+
     <div class="tile-block" id="todo_tasks">
 
         <div class="tile-header">
@@ -54,16 +55,21 @@
 
         <div class="tile-content">
 
-            <input type="text" class="form-control" placeholder="مورد جدید" />
+            {{Form::open(['route'=>'todos.create'])}}
+                <input type="text" name="newTask" class="form-control" placeholder="مورد جدید" />
+            {{Form::close()}}
 
             <ul class="todo-list">
 
                 @foreach($todos as $todo)
                     <li>
+                {{Form::open(['route'=>'todos.check'])}}
                         <div class="checkbox checkbox-replace color-white ">
-                            <input type="checkbox" @if($todo->done == true) checked @endif />
+                            <input name="task" value="{{$todo->id}}" type="checkbox" onclick="this.form.submit()" {{$todo->done ? 'checked' : ''}}/>
+                            {{Form::hidden('task',$todo->id)}}
                             <label>{{$todo->title}}</label>
                         </div>
+                {{Form::close()}}
                     </li>
                 @endforeach
 
@@ -72,11 +78,12 @@
         </div>
 
         <div class="tile-footer">
-            <a href="#">خذف موارد انجام شده</a>
+            <a href="{{URL::route('todos.delete')}}">خذف موارد انجام شده</a>
         </div>
 
     </div>
-    {{Form::close()}}
+
+
 </div>
 <div class="col-sm-6">
     <div class="mail-env">

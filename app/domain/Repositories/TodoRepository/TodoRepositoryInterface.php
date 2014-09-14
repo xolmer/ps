@@ -16,24 +16,25 @@ interface TodoRepositoryInterface extends BaseRepositoryInterface{
 
 
     /**
-     * Create a Todo Task
+     * @param $task
+     * @param $user_id
+     * @return mixed
      */
-    public function create();
+    public function create($task,$user_id);
+
 
     /**
-     * Check the Task as completed.
+     * @param $task
+     * @return mixed
      */
-    public function done();
+    public function check($task);
+
 
     /**
-     * Uncheck the completed Task
+     * @param $user
+     * @return mixed
      */
-    public function undone();
-
-    /**
-     * Delete the Task
-     */
-    public function delete();
+    public function delete($user);
 
 
     
