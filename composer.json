@@ -11,8 +11,8 @@
         "zizaco/entrust": "1.2.*",
         "way/generators": "~2.0",
         "laracasts/validation": "~1.0",
-        "intervention/image" : "2.0.5"
-
+        "intervention/image": "2.0.5",
+        "gargron/fileupload": "1.0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
@@ -30,8 +30,8 @@
             "app/tests/support",
             "app/domain/Support/Notifications"
         ],
-        "psr-4" : {
-            "SaarangSlt\\" : "app/domain"
+        "psr-4": {
+            "SaarangSlt\\": "app/domain"
 
         }
 
