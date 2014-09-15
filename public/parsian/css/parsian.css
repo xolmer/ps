@@ -169,6 +169,23 @@ ul.ui-autocomplete {
   font-size: 12px;
   font-family: 'Nassim'; }
 
+.mail-env .mail-body .mail-compose iframe.wysihtml5-sandbox {
+  border-bottom: 0px !important;
+  -webkit-border-bottom-left-radius: 0px !important;
+          border-bottom-left-radius: 0px !important;
+  -webkit-border-bottom-right-radius: 0px !important;
+          border-bottom-right-radius: 0px !important; }
+.mail-env .mail-body .mail-compose .mail-attachment-box {
+  border: 1px solid #ebebeb;
+  border-top: 0px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  padding: 6px 12px; }
+  .mail-env .mail-body .mail-compose .mail-attachment-box .file-input-name {
+    display: none; }
+  .mail-env .mail-body .mail-compose .mail-attachment-box #files .alert {
+    margin-bottom: 3px;
+    padding: 5px; }
 .mail-env .mail-body .mail-compose .form-group input#subject {
   border: 1px solid #ebebeb;
   padding-right: 10px;
@@ -176,21 +193,20 @@ ul.ui-autocomplete {
   z-index: auto; }
 .mail-env .mail-body .mail-compose .form-group label {
   position: static; }
-
-.send-mail-button {
+.mail-env .mail-body .mail-compose .mail-env .mail-body .mail-table tbody tr td.col-subject a {
+  height: 40px;
+  max-width: none; }
+  .mail-env .mail-body .mail-compose .mail-env .mail-body .mail-table tbody tr td.col-subject a span.label {
+    display: inline-block; }
+.mail-env .mail-body .mail-compose .send-mail-button {
   font-size: 15px !important; }
-
-.select2-container {
+.mail-env .mail-body .mail-compose .select2-container {
   position: static; }
-
-.select2-container-multi .select2-choices {
+.mail-env .mail-body .mail-compose .select2-container-multi .select2-choices {
   position: static; }
-
-ul.wysihtml5-toolbar li a[title="Insert image"] {
+.mail-env .mail-body .mail-compose ul.wysihtml5-toolbar li a[title="Insert image"] {
   display: none; }
-
-ul.wysihtml5-toolbar li a[title="Insert link"] {
+.mail-env .mail-body .mail-compose ul.wysihtml5-toolbar li a[title="Insert link"] {
   display: none; }
-
-ul.wysihtml5-toolbar li.dropdown {
+.mail-env .mail-body .mail-compose ul.wysihtml5-toolbar li.dropdown {
   display: none; }

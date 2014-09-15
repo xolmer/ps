@@ -64,18 +64,8 @@
             <label class="farsi" for="to">{{Lang::get('words.to')}} :</label>
 
             <div class="form-group farsi">
-                <select name="recipients[]" class="select2 ltr farsi" multiple>
-                    <option value="1">سروش کشتکاران</option>
-                    <option value="2">محمدرضا سلطانی</option>
-                    <option value="3">رضا کاویانی</option>
-                    <option value="4">مصطفی بهمنی</option>
-                    <option value="5">محسن رضایی</option>
-                    <option value="6">سلیم سبکپا</option>
-                    <option value="7">نیما شمس</option>
-                    <option value="8">کاوه یغمایی</option>
 
-                </select>
-
+               {{Form::select('recipients[]',User::where('id','<>',Auth::user()->id)->get()->lists('full_name','id'),null,['class' => 'select2 ltr farsi','multiple'])}}
             </div>
 
 
@@ -111,6 +101,17 @@
                 <textarea class="form-control wysihtml5 " name="body" id="body"></textarea>
             </div>
 
+            <div class="mail-attachment-box">
+            <div class="row">
+               <div class="col-sm-5">
+                   <input  type="file" id="fileupload" name="files[]" multiple class="form-control $classes file2 inline btn btn-primary farsi"
+                   data-label="<i class='glyphicon glyphicon-file'></i> {{Lang::get('words.attach-file')}}"  />
+                </div>
+                <div class="col-md-7">
+                <div id="files"></div>
+                </div>
+            </div>
+            </div>
 
 
         </div>
@@ -126,7 +127,33 @@
 @stop
 
 @section('pageScripts')
+<script src="/assets/js/libs/jquery.fileupload.js"></script>
+<script src="/assets/js/libs/jquery.iframe-transport.js"></script>
 <script type="text/javascript">
     composeMailMessage();
+
+    $(function () {
+        'use strict';
+        // Change this to the location of your server-side upload handler:
+        var url = '/mails/uploadattachment';
+        $('#fileupload').fileupload({
+            url: url,
+            dataType: 'json',
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    $('<div/>').text(file.name).appendTo('#files').addClass('alert alert-success');
+                });
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+
 </script>
 @stop

@@ -52,18 +52,20 @@ class EloquentMailRepository implements MailRepositoryInterface {
 
     function deleteMail($userID, $mailID)
     {
-
+        \UserMail::where('receiver_id',$userID)->where('id',$mailID)->delete();
     }
 
 
-    function markAsRead($userID,$mailID)
+    function markAsRead($mailID)
     {
-
+         \UserMail::where('id',$mailID)->update(['is_read' => true]);
     }
 
 
-    function markAsStarred($userID,$mailID)
+    function toggleStar($userID,$mailID,$isStared)
     {
+
+         \UserMail::where('id',$mailID)->where('receiver_id',$userID)->update(['is_stared' => $isStared === 'true'? true: false]);
 
     }
 
@@ -80,12 +82,16 @@ class EloquentMailRepository implements MailRepositoryInterface {
 
     public function getUserSentMails($userID)
     {
-        // TODO: Implement getUserSentMails() method.
+        return \UserMail::whereHas('mail', function($q) use($userID)
+        {
+            $q->where('sender_id', $userID);
+
+        })->get();
     }
 
     public function getUserDeletedMails($userID)
     {
-        // TODO: Implement getUserDeletedMails() method.
+        return \UserMail::onlyTrashed()->where('receiver_id',$userID)->get();
     }
 
     public function getUserUnreadCount($userID)

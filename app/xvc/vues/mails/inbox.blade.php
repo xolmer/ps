@@ -42,22 +42,23 @@
 			<thead>
 				<tr>
 					<th width="5%">
-						<div class="checkbox checkbox-replace neon-cb-replacement">
-							<label class="cb-wrapper"><input type="checkbox"><div class="checked"></div></label>
-						</div>
+		                <div class="checkbox checkbox-replace selectAll">
+        					<input type="checkbox" id="chk-1" onclick="$('div.checkbox').toggleClass('checked');">
+        				</div>
+
 					</th>
 					<th colspan="4">
-
-
-
-						<div class="mail-pagination" colspan="2">
-							<strong>1-30</strong> <span>of 789</span>
+						<div class="mail-pagination ltr" colspan="2">
+							<strong>1-10</strong> <span>of {{$mails->count()}}</span>
 
 							<div class="btn-group">
 								<a href="#" class="btn btn-sm btn-white"><i class="entypo-left-open"></i></a>
 								<a href="#" class="btn btn-sm btn-white"><i class="entypo-right-open"></i></a>
 							</div>
 						</div>
+						<button type="button" class="btn btn-white delete-mail-button">
+                        	<i class="entypo-trash"></i>
+                        </button>
 					</th>
 				</tr>
 			</thead>
@@ -71,14 +72,14 @@
 			<tfoot>
 				<tr>
 					<th width="5%">
-						<div class="checkbox checkbox-replace neon-cb-replacement">
+						<div class="checkbox checkbox-replace neon-cb-replacement selectAll">
 							<label class="cb-wrapper"><input type="checkbox"><div class="checked"></div></label>
 						</div>
 					</th>
 					<th colspan="4">
 
-						<div class="mail-pagination" colspan="2">
-							<strong>1-30</strong> <span>of 789</span>
+						<div class="mail-pagination ltr" colspan="2">
+							<strong>1-10</strong> <span>of {{$mails->count()}}</span>
 
 							<div class="btn-group">
 								<a href="#" class="btn btn-sm btn-white"><i class="entypo-left-open"></i></a>
@@ -97,4 +98,10 @@
 </div>
 {{--Mail --End--}}
 
+@stop
+
+@section('pageScripts')
+<script>
+    mailBox();
+</script>
 @stop
