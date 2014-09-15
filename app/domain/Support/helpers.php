@@ -43,3 +43,12 @@ function priorityToClass($priority = 1)
 
     return $mappings[$priority];
 }
+
+
+function domain_storage_path(){
+    return storage_path() . '/parsian';
+}
+
+function mail_attachments_path(){
+    return domain_storage_path() . '/mail_attachments';
+}
