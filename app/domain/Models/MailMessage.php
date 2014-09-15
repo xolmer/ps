@@ -17,5 +17,9 @@ class MailMessage extends Eloquent {
         return $this->belongsTo('User','sender_id');
     }
 
+    public function attachments(){
+        return $this->hasMany('MailAttachment');
+    }
+
 
 }
