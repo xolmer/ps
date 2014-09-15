@@ -104,7 +104,7 @@
             <div class="mail-attachment-box">
             <div class="row">
                <div class="col-sm-5">
-                   <input  type="file" id="fileupload" name="files[]" multiple class="form-control $classes file2 inline btn btn-primary farsi"
+                   <input  type="file" id="fileupload" name="attachments[]" multiple class="form-control $classes file2 inline btn btn-primary farsi"
                    data-label="<i class='glyphicon glyphicon-file'></i> {{Lang::get('words.attach-file')}}"  />
                 </div>
                 <div class="col-md-7">
