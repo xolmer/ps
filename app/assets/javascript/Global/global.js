@@ -6,6 +6,12 @@ module.exports = function () {
     });
 
 
+    $('.mail-row a.star').on('click',function(){
+        var mail_id = $(this).parents('tr.mail-row').data('remoteid');
+        $.post('/mails/togglestar',{stared : !$(this).hasClass('stared'),id : mail_id});
+        $(this).toggleClass('stared');
+    });
+
 
 
 }
