@@ -13,7 +13,7 @@ class AuthController extends BaseController{
 
 
     public function index(){
-        return Auth::check() ?  View::make( 'accueil' ) :  View::make('login');
+        return Auth::check() ?  View::make( 'accueil' )->with('todos',Auth::user()->todos) :  View::make('login');
     }
 
     public function authenticate()
