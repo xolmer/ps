@@ -34,7 +34,7 @@ interface TodoRepositoryInterface extends BaseRepositoryInterface{
      * @param $user
      * @return mixed
      */
-    public function delete($user);
+    public function delete($user_id);
 
 
     

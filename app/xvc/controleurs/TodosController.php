@@ -17,7 +17,7 @@ class TodosController extends \BaseController {
 
     public function postCreate()
     {
-        $this->todoRepo->create(Input::get('newTask'),$this->userRepo->currentUser()->id);
+        return $this->todoRepo->create(Input::get('newTodo'),$this->userRepo->currentUser()->id);
     }
     public function postCheck()
     {

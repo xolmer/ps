@@ -40,11 +40,11 @@ class EloquentTodoRepository implements TodoRepositoryInterface {
      */
     public function create($task,$user_id)
     {
-        $newMail = \Todo::create(array(
+        $newToDo = \Todo::create(array(
             'title' => $task,
             'user_id' => $user_id
         ));
-        return Redirect::back()->send();
+        return $newToDo;
     }
 
     /**
@@ -62,7 +62,6 @@ class EloquentTodoRepository implements TodoRepositoryInterface {
     public function delete($user)
     {
         $user->todos()->where('done',true)->delete();
-        return Redirect::back()->send();
     }
 
 

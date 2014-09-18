@@ -39,51 +39,9 @@
 </div>
 <hr/>
 <div class="row farsi">
-<div class="col-sm-3">
 
-    <div class="tile-block" id="todo_tasks">
+@include('partiels._todos')
 
-        <div class="tile-header">
-            <i class="entypo-list"></i>
-
-            <a href="#">
-               کارهایی که باید انجام بدهم
-                <span>موارد انجام شده را تیک بزنید</span>
-            </a>
-        </div>
-
-        <div class="tile-content">
-
-            {{Form::open(['route'=>'todos.create','data-remote'])}}
-                <input type="text" name="newTask" class="form-control" placeholder="مورد جدید" />
-            {{Form::close()}}
-
-            <ul class="todo-list">
-
-                @foreach($todos as $todo)
-                    <li data-todo-id="{{$todo->id}}">
-                {{Form::open(['route'=>'todos.check','data-todo'])}}
-                        <div class="checkbox checkbox-replace color-white ">
-                            <input name="task" value="{{$todo->id}}" type="checkbox" {{$todo->done ? 'checked' : ''}}/>
-                            {{Form::hidden('task',$todo->id)}}
-                            <label>{{$todo->title}}</label>
-                        </div>
-                {{Form::close()}}
-                    </li>
-                @endforeach
-
-            </ul>
-
-        </div>
-
-        <div class="tile-footer">
-            <a href="{{URL::route('todos.delete')}}">خذف موارد انجام شده</a>
-        </div>
-
-    </div>
-
-
-</div>
 <div class="col-sm-6">
     <div class="mail-env">
     <div class="mail-body" style="width:100%">
@@ -436,47 +394,6 @@
 
 @section('pageScripts')
 <script>
-    $(document).ready(function(){
-
-    $('.todo-list').on('mouseup','.cb-wrapper',function(){
-        var todoID = $(this).parents('li').data('todo-id');
-        var url = '{{URL::route('todos.check')}}';
-        var checkedStatus = !$(this).parent().hasClass('checked');
-        console.log($(this).parent());
-        $.post(url , {todo_id : todoID, checked : checkedStatus });
-    });
-});
-
-$(document).ready(function(){
-        $('form[data-remote]').on('submit', function(e) {
-            var form = $(this);
-            var method = form.find('input[name="_method"]').val() || 'POST';
-            var url = form.prop('action');
-
-    //        $('#loading-image').show();
-            $.ajax({
-                type: method,
-                url: url,
-                data: form.serialize(),
-                success: function() {
-                    $todo_tasks = $("#todo_tasks");
-                    var newTodo = $todo_tasks.find('input[type="text"]').val();
-                    if($.trim(newTodo).length)
-                    {
-                        var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+newTodo+'</label></div></li>');
-                        $todo_tasks.find('input[type="text"]').val('');
-
-                        $todo_entry.prependTo($todo_tasks.find('.todo-list'));
-                        $todo_entry.hide().slideDown('fast');
-                        replaceCheckboxes();
-                    }
-                }
-             });
-
-        e.preventDefault();
-        });
-
-	});
-
+    todos();
 </script>
 @stop

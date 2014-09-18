@@ -40,7 +40,7 @@ Route::group(array('before' => 'auth'), function () {
     Route::group(['prefix' => 'todos'], function () {
         Route::post('create',['as' => 'todos.create','uses' => 'TodosController@postCreate']);
         Route::post('check',['as' => 'todos.check','uses' => 'TodosController@postCheck']);
-        Route::get('delete',['as' => 'todos.delete','uses' => 'TodosController@delete']);
+        Route::post('delete',['as' => 'todos.delete','uses' => 'TodosController@delete']);
 
     });
 

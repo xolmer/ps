@@ -84,6 +84,10 @@ return array(
         '2' => 'مهم',
         '3' => 'خیلی مهم'
     ),
-    'attach-file' => 'ضمیمه فایل'
+    'attach-file' => 'ضمیمه فایل',
+    'thingsIMustDo' => 'کارهایی که باید انجام بدهم',
+    'checkDoneItems' => 'موارد انجام شده را تیک بزنید',
+    'newItem' => 'مورد جدید',
+    'deleteDoneItems' => 'حذف موارد انجام شده',
 
 );
