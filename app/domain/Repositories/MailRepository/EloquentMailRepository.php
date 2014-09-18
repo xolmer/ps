@@ -35,7 +35,7 @@ class EloquentMailRepository implements MailRepositoryInterface {
             'priority' => $priority,
             'body' => $body
         ));
-        
+        $newMail->save();
         $receiversArray = [];
         foreach($receivers as $index => $receiverID ){
             $receiversArray[$index] = new \UserMail(['receiver_id' => $receiverID]);
@@ -46,29 +46,26 @@ class EloquentMailRepository implements MailRepositoryInterface {
 
     }
 
-    public function addRecipientToMail($mailID,$recipientID){
-            \UserMail::create(array(
-                'receiver_id' => $recipientID,
-                'mail_id' => $mailID
-            ));
-    }
+
 
 
 
     function deleteMail($userID, $mailID)
     {
-
+        \UserMail::where('receiver_id',$userID)->where('id',$mailID)->delete();
     }
 
 
-    function markAsRead($userID,$mailID)
+    function markAsRead($mailID)
     {
-
+         \UserMail::where('id',$mailID)->update(['is_read' => true]);
     }
 
 
-    function markAsStarred($userID,$mailID)
+    function toggleStar($userID,$mailID,$isStared)
     {
+
+         \UserMail::where('id',$mailID)->where('receiver_id',$userID)->update(['is_stared' => $isStared === 'true'? true: false]);
 
     }
 
@@ -76,5 +73,29 @@ class EloquentMailRepository implements MailRepositoryInterface {
     function addAttachment($userID,$uniqueID,$attachment)
     {
 
+    }
+
+    public function getUserReceivedMails($userID)
+    {
+        return \UserMail::where('receiver_id',$userID)->get();
+    }
+
+    public function getUserSentMails($userID)
+    {
+        return \UserMail::whereHas('mail', function($q) use($userID)
+        {
+            $q->where('sender_id', $userID);
+
+        })->get();
+    }
+
+    public function getUserDeletedMails($userID)
+    {
+        return \UserMail::onlyTrashed()->where('receiver_id',$userID)->get();
+    }
+
+    public function getUserUnreadCount($userID)
+    {
+        // TODO: Implement getUserUnreadCount() method.
     }
 }

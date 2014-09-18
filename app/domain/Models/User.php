@@ -19,6 +19,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 
     protected $guarded = array();
 
+    protected $appends = ['full_name'];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -137,6 +139,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     {
         return Config::get('parsian.avatarsBasePath') . $this->getKey();
     }
+
+
 
 
 }

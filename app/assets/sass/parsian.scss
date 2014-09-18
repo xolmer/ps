@@ -1,190 +1,225 @@
 @import "mixins";
-$farsi-font-size : 15px;
+
+$farsi-font-size: 15px;
 @font-face {
-    font-family: "Nassim";
-    src: url("/assets/fonts/nasim.otf");
-    src: local("☺"), url("/assets/fonts/nasim.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Nassim";
+  src: url("/assets/fonts/nasim.otf");
+  src: local("☺"), url("/assets/fonts/nasim.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .farsi {
-    font-family: "Nassim";
-    font-size: $farsi-font-size ;
-    input {
-        font-size: $farsi-font-size ;
-    }
+  font-family: "Nassim";
+  font-size: $farsi-font-size;
+  input {
+    font-size: $farsi-font-size;
+  }
 }
 
 .farsi-content {
-    font-family: "Nassim";
+  font-family: "Nassim";
 }
 
 .select2-results {
-    font-family: "Nassim";
-    font-size: 15px;
+  font-family: "Nassim";
+  font-size: 15px;
 }
 
 .latin {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .page-container .sidebar-menu #main-menu li a {
-    padding: 9px 20px;
-    font-family: Nassim;
-    font-size: 16px;
+  padding: 9px 20px;
+  font-family: Nassim;
+  font-size: 16px;
 }
 
 .alert h4 {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .profile-info.dropdown .dropdown-menu > li > a {
-    font-family: Nassim;
-    font-size: 14px;
-    padding-right: 0px;
+  font-family: Nassim;
+  font-size: 14px;
+  padding-right: 0px;
 }
 
 .profile-info.dropdown .dropdown-menu > li > a > i {
-    padding-left: 3px;
+  padding-left: 3px;
 }
 
 input::placeholder {
-    text-align: right;
-    direction: rtl;
+  text-align: right;
+  direction: rtl;
 }
 
 .today-dates {
-    color: white;
-    text-align: left;
-    line-height: 16px;
-    .shamsi {
-        float: right;
-        font-family: Nassim;
-    }
+  color: white;
+  text-align: left;
+  line-height: 16px;
+  .shamsi {
+    float: right;
+    font-family: Nassim;
+  }
 }
 
 .rtl {
-    direction: rtl;
-    text-align: right;
+  direction: rtl;
+  text-align: right;
 }
 
 .ltr {
-    direction: ltr;
-    text-align: left;
+  direction: ltr;
+  text-align: left;
 }
 
 .help-block {
-    margin-top: 5px;
+  margin-top: 5px;
 
-    //For server side validations
-    ul.form-errors, .form-errors {
-        @include form-errors-container();
-        li {
-            @include form-errors-error-item()
-                }
+  //For server side validations
+  ul.form-errors, .form-errors {
+    @include form-errors-container();
+    li {
+      @include form-errors-error-item()
     }
+  }
 }
 
 //For client side validations
 div.form-error {
-    @include form-errors-error-item();
+  @include form-errors-error-item();
 }
 
 .help-block ul {
-    margin-top: 5px;
-    li {
-        color: #818181;
-    }
+  margin-top: 5px;
+  li {
+    color: #818181;
+  }
 }
 
 .form-groups-compact, .form-groups-bordered .form-groups-compact {
-    padding-bottom: 0px !important;
-    padding-top: 0px !important;
-    border-bottom: 0px transparent !important;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  border-bottom: 0px transparent !important;
 }
 
 ul.ui-autocomplete {
-    border: 1px solid #ecf4f4;
+  border: 1px solid #ecf4f4;
 }
 
 .ui-autocomplete li.ui-menu-item {
-    margin-top: -2px;
-    text-align: left;
-    background-color: white;
-    padding: 5px 5px;
+  margin-top: -2px;
+  text-align: left;
+  background-color: white;
+  padding: 5px 5px;
 }
 
 .ui-autocomplete li.ui-state-focus {
-    background-color: #ecf4f4;
-    font-weight: bold;
-    color: black;
+  background-color: #ecf4f4;
+  font-weight: bold;
+  color: black;
 }
 
 .wizard-summary {
-    h3 {
-        margin: 0px;
-        padding: 6px;
-        border: 1px solid #ebebeb;
-        border-top-width: 0px;
-        border-bottom-width: 0px;
-        background-color: #f5f5f6;
-    }
-    table {
-        margin-bottom: 0px;
-    }
-    & .row:first-child h3 {
-        border-top-width: 1px;
-    }
+  h3 {
+    margin: 0px;
+    padding: 6px;
+    border: 1px solid #ebebeb;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    background-color: #f5f5f6;
+  }
+  table {
+    margin-bottom: 0px;
+  }
+  & .row:first-child h3 {
+    border-top-width: 1px;
+  }
 }
 
 .popover {
-    font-family: 'Nassim';
-    text-align: center;
+  font-family: 'Nassim';
+  text-align: center;
 }
 
 .popover-title, .popover-content {
-    font-size: 12px;
-    font-family: 'Nassim';
+  font-size: 12px;
+  font-family: 'Nassim';
 }
 
-.mail-env .mail-body .mail-compose .form-group {
+.mail-env .mail-body .mail-compose {
+  iframe.wysihtml5-sandbox {
+    border-bottom: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  .mail-attachment-box {
+    border: 1px solid rgb(235, 235, 235);
+    border-top:0px;
+    border-radius: 3px;
+    padding: 6px 12px;
+    //hide the text that apears next to the fileupload to show the name or list of files selected
+    .file-input-name {
+      display: none;
+    }
+    #files .alert{
+      margin-bottom: 3px;
+      padding: 5px;
+    }
+  }
+  .form-group {
     input#subject {
-        border: 1px solid #ebebeb;
-        padding-right: 10px;
-        position: static;
-        z-index: auto;
+      border: 1px solid #ebebeb;
+      padding-right: 10px;
+      position: static;
+      z-index: auto;
     }
     label {
-        position: static;
+      position: static;
     }
+  }
+
+
+
+.mail-env .mail-body .mail-table tbody tr td.col-subject a {
+  height: 40px;
+  max-width: none;
+  span.label {
+    display: inline-block;
+  }
 }
 
 .send-mail-button {
-    font-size: $farsi-font-size !important;
+  font-size: $farsi-font-size !important;
 }
+
 .select2-container {
   position: static;
 }
+
 .select2-container-multi .select2-choices {
   position: static;
 }
 
 //Editor
 ul.wysihtml5-toolbar li a[title="Insert image"] {
-    display: none;
+  display: none;
 }
 
 ul.wysihtml5-toolbar li a[title="Insert link"] {
-    display: none;
+  display: none;
 }
 
 ul.wysihtml5-toolbar li.dropdown {
-    display: none;
+  display: none;
+}
+
 }
 

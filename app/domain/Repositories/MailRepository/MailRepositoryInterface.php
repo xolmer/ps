@@ -18,13 +18,20 @@ interface MailRepositoryInterface extends BaseRepositoryInterface{
 
     public function deleteMail($userID, $mailID);
 
-    public function markAsRead($userID,$mailID);
+    public function markAsRead($mailID);
 
-    public function markAsStarred($userID,$mailID);
+    public function toggleStar($userID,$mailID,$isStared);
 
     public function addAttachment($userID,$uniqueID,$attachment);
-    
-    public function addRecipientToMail($mailID,$recipientID);
+
+    public function getUserReceivedMails($userID);
+
+    public function getUserSentMails($userID);
+
+    public function getUserDeletedMails($userID);
+
+    public function getUserUnreadCount($userID);
+
 
 
 } 

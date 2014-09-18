@@ -1,32 +1,54 @@
 <?php
 
 define("DEFAULTDATEFORMAT", 'l jS \of F Y h:i A');
-define("MYSQLFORMAT",'Y-m-d H:i:s');
+define("MYSQLFORMAT", 'Y-m-d H:i:s');
 
-function toJalali($timestamp=null,$format = null){
+function toJalali($timestamp = null, $format = null)
+{
 
     require_once(__DIR__ . '/JalaliDate/jdatetime.class.php');
-    if($timestamp == null){
+    if ($timestamp == null) {
         $timestamp = time();
     }
-    if($format==null){
+    if ($format == null) {
         $format = 'l j F Y ساعت H:i';
     }
     return jDateTime::date($format, $timestamp, true, true);
 }
 
 
-
-function country($countryID){
+function country($countryID)
+{
     $countryID = empty($countryID) ? 158 : $countryID;
     return DB::table('countries')->where('id', $countryID)->pluck('country_name');
 }
 
-function timezoneToCountry($timezone){
-    switch($timezone){
+function timezoneToCountry($timezone)
+{
+    switch ($timezone) {
         case 'Asia/Kuala_Lumpur':
             return Lang::get('words.countries.malaysia');
         case 'Asia/Tehran':
             return Lang::get('words.countries.iran');
     }
+}
+
+function priorityToClass($priority = 1)
+{
+    $mappings = array(
+        1 => 'label-warning',
+        2 => 'label-warning',
+        3 => 'label-danger'
+    );
+
+    return $mappings[$priority];
+}
+
+
+function domain_storage_path(){
+    return storage_path() . '/parsian';
+}
+
+function mail_attachments_path(){
+    return domain_storage_path() . '/mail_attachments';
 }

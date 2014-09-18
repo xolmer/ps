@@ -11,43 +11,78 @@
 
 use SaarangSlt\Repositories\MailRepository\MailRepositoryInterface;
 use SaarangSlt\Repositories\UserRepository\UserRepositoryInterface;
-class MailsController extends \BaseController {
-
-
+use SaarangSlt\Services\FileUploadManager\FileUploadManager;
+class MailsController extends \BaseController
+{
 
 
     private $mail;
     private $user;
 
-    public function __construct(MailRepositoryInterface $mailRepository, UserRepositoryInterface $userRepositroy){
+    public function __construct(MailRepositoryInterface $mailRepository, UserRepositoryInterface $userRepositroy)
+    {
 
         $this->mail = $mailRepository;
         $this->user = $userRepositroy;
     }
 
-    public function showInbox(){
-        return View::make('mails.inbox');
+    public function showInbox()
+    {
+        $mailMessages = $this->mail->getUserReceivedMails(Auth::user()->id);
+        return View::make('mails.inbox')->with('mails', $mailMessages);
     }
-    public function showSentbox(){
-        return View::make('mails.sentbox');
+
+    public function showSentbox()
+    {
+        $mails = $this->mail->getUserSentMails($this->user->currentUser()->id);
+        return View::make('mails.sentbox')->with('mails',$mails);
     }
-    public function showCompose(){
+
+    public function showCompose()
+    {
         return View::make('mails.compose');
     }
-    public function postCompose(){
+
+    public function postCompose()
+    {
         extract(Input::all());
-        
-        $this->mail->storeNewMail($this->user->currentUser()->id,$subject,$body,$priority,$recipients);
-        
+
+        $this->mail->storeNewMail($this->user->currentUser()->id, $subject, $body, $priority, $recipients);
+
         Flash::success(Lang::get('messages.mails.send-mail-success'));
         return Redirect::route('mail.inbox');
     }
-    public function showTrash(){
+
+    public function showTrash()
+    {
+        $mails =  $this->mail->getUserDeletedMails($this->user->currentUser()->id);
+        return View::make('mails.trashbox')->with('mails',$mails);
+    }
+
+    public function toggleStar()
+    {
+        $userID = $this->user->currentUser()->id;
+        $this->mail->toggleStar($userID,Input::get('id'), Input::get('stared'));
+    }
+
+    public function markAsRead()
+    {
+        $this->mail->markAsRead(Input::get('id'));
 
     }
-    
-    
-    
+
+    public function deleteMail(){
+        $selectedMails = Input::get('mails');
+        foreach($selectedMails as $mailID)
+        $this->mail->deleteMail($this->user->currentUser()->id,$mailID);
+    }
+
+    public function handleAttachment()
+    {
+            $manager = new FileUploadManager(mail_attachments_path(),Input::file('attachments'));
+            return $manager->process();
+
+    }
 
 
 }

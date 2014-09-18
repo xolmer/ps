@@ -30,9 +30,11 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('compose', ['as' => 'mail.compose', 'uses' => 'MailsController@showCompose']);
         Route::post('compose', ['as' => 'mail.compose', 'uses' => 'MailsController@postCompose']);
         Route::get('trash', ['as' => 'mail.trash', 'uses' => 'MailsController@showTrash']);
-        Route::get('test', function () {
-            return View::make('mails.compose');
-        });
+        Route::post('togglestar', ['as' => 'mail.toggle-star', 'uses' => 'MailsController@toggleStar']);
+        Route::post('markasread', ['as' => 'mail.mark-as-read', 'uses' => 'MailsController@markAsRead']);
+        Route::post('uploadattachment',['as' => 'mail.upload-attachment','uses' => 'MailsController@handleAttachment']);
+        Route::post('delete',['as' => 'mail.delete','uses' => 'MailsController@deleteMail']);
+
     });
 
 
