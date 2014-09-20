@@ -41,6 +41,12 @@ return array(
         'compose_mail' => 'نامه جدید',
         'trash' => 'سطل زباله'
 
+    ),
+
+    'sidebar' =>  array(
+        'money_changers' => ' صرافی ها' ,
+
+
     )
 
 

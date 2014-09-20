@@ -22,6 +22,17 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('createcustomer', array('as' => 'customer.create', 'uses' => 'CustomersController@create'));
         Route::post('createcustomer', array('as' => 'customer.store', 'uses' => 'CustomersController@store'));
 
+
+        Route::group(array('prefix' => 'moneychangers'),function(){
+            Route::get('/', array('as' => 'moneychangers.index', 'uses' => 'MoneyChangersController@index'));
+
+            Route::get('createmoneychangers', array('as' => 'moneychangers.create', 'uses' => 'MoneyChangersController@create'));
+            Route::post('createmoneychangers', array('as' => 'moneychangers.store', 'uses' => 'MoneyChangersController@store'));
+
+            Route::get('editmoneychangers/{id}', array('as' => 'moneychangers.edit', 'uses' => 'MoneyChangersController@edit'));
+            Route::post('editmoneychangers/{id}', array('as' => 'moneychangers.update', 'uses' => 'MoneyChangersController@update'));
+        });
+
     });
 
     Route::group(['prefix' => 'mails'], function () {
