@@ -12,7 +12,7 @@
 							<i class="entypo-star"></i>
 						</a>
 					@endif
-						<a href="mailbox-message.html" class="col-name">
+						<a href="{{URL::route('mail.show',['id' => $mail->id])}}" class="col-name">
 						<img src="{{$mail->sender->small_avatar}}" class="img-circle" width="44"/>   {{$mail->sender_name}}
 						 </a>
 					</td>
@@ -20,7 +20,7 @@
 
 					<td class="col-subject">
 
-						<a href="mailbox-message.html" >
+						<a href="{{URL::route('mail.show',['id' => $mail->id])}}" >
                             @unless($mail->priority < 2)
                                 <span  class="label {{priorityToClass($mail->priority)}} farsi">{{Lang::get('words.priorities.' . $mail->priority)}}</span>
                             @endunless
