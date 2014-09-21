@@ -93,5 +93,6 @@ return array(
     'money_changer_name' => 'نام صرافی',
     'number_of_affiliated_customers' => 'نعداد مشتریان مرتبط',
     'created_at' => 'تاریخ ایجاد',
+    'business_description' => 'توضیحات کسب و کار',
 
 );

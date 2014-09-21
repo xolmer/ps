@@ -100,15 +100,15 @@ Form::macro('countrySelectSet',function ( $input_name , $classes = [] , $default
 
 Form::macro('timezoneSelectSet',function ( $input_name , $classes = [] , $defaultValue = 'Asia/Kuala_Lumpur') {
 
-    $classes = implode( ' ', $classes);
+    $classes = implode( ' ', $classes + [' rtl']) ;
     $data = DB::table('timezones')->lists('name','name');
     return View::make('disposition.macros.selectInputSet')
     ->with(array(
         'name' => $input_name,
         'classes' => $classes,
+        'data' => $data,
         'defaultValue' => $defaultValue,
-        'data' => $data
-
+        'label' => $input_name
         ));
 
 });

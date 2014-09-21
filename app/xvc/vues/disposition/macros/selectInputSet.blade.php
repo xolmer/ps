@@ -3,7 +3,7 @@
     farsi'))}}
     <div class="col-sm-5">
         {{Form::select($name,
-        $data , $defaultValue, array('class' => 'form-control ltr ' . $classes ,  
+        $data , $defaultValue, array('class' => 'form-control select2' . $classes ,  
         'id' => $name,
         'placeholder'=>$label))}}
         <div class="help-block">
