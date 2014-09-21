@@ -85,6 +85,7 @@ return array(
         '3' => 'خیلی مهم'
     ),
     'attach-file' => 'ضمیمه فایل',
+    'moneychanger_name' => 'نام صرافی',
     'money_changer' => 'صرافی' ,
     'money_changers' => 'صرافی ها',
     'director_name' => 'نام مدیر',

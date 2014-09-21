@@ -11,9 +11,15 @@
  * Created at : 9/20/14 17:28 PM
  */
 
+use SaarangSlt\Validators\MoneyChangerValidator;
+
 class EloquentMoneyChangerRepository implements MoneyChangerRepositoryInterface{
 
-	public function all()
+	public function __construct(MoneyChangerValidator $validator){
+        $this->validator  = $validator;
+    }
+
+    public function all()
     {
         return \MoneyChanger::all();
     }
@@ -25,6 +31,8 @@ class EloquentMoneyChangerRepository implements MoneyChangerRepositoryInterface{
     }
 
     public function createNewMoneyChanger( $attributes ){
+        $this->validator->validate($attributes);
+        return \MoneyChanger::create($attributes);
     }
 
     public function updateMoneyChanger( $moneyChangerID, $attributes ){

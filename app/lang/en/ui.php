@@ -43,6 +43,7 @@ return array(
         'trash' => 'سطل زباله',
         'money_changer' => 'صرافی' ,
         'money_changers' => 'صرافی ها',
+        'create_money_changer' => 'معرفی صرافی جدید',
 
     ),
 

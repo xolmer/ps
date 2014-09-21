@@ -24,5 +24,8 @@ return array(
     ),
     'mails' => array(
         'send-mail-success' => 'نامه شما با موفقیت ارسال شد'
-    )
+    ),
+    'moneychanger' => array(
+        'create-success' => 'صرفای <strong> :name </strong>با موفقیت به سیستم معرفی گردید'
+        )
 );

@@ -18,6 +18,7 @@ return array(
     'associateSenderCustomerText' => 'حواله های مشتری حتما باید از طرف یکی از فرستندگان معرفی شده توسط وی باشد. برای هر مشتری می توان به تعداد نامحدودی فرستنده معرفی کرد. برای معرفی کردن فرستنده جدید روی دکمه <strong> :button </strong> کلید کنید',
     'pleaseWait' => 'لطفا منتظر بمانید',
     'selectYourProfilePic' => 'تصویر پروفایل جدید خود را انتخاب کنید',
+    'enter_moneychanger_information' => 'اطلاعات صرافی جدید را وارد کنید',
     'help-block' => array(
 
         'user' => array(

@@ -30,4 +30,20 @@ Class MoneyChangersController extends BaseController {
         return View::make('moneychangers.moneyChangersIndex')->with('moneyChangers', $moneyChangers);
     }
 
+
+    public function create(){
+    	return View::make('moneychangers.moneyChangersCreate');
+    }
+
+    public function store(){
+
+    	$moneychanger = $this->mc->createNewMoneyChanger(Input::all());
+
+        Flash::success(Lang::get('messages.moneychanger.create-success', array(
+            'name' => $moneychanger->name,
+        )));
+
+        return Redirect::route('moneychangers.index');
+    }
+
 }
