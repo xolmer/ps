@@ -84,6 +84,13 @@ return array(
         '2' => 'مهم',
         '3' => 'خیلی مهم'
     ),
-    'attach-file' => 'ضمیمه فایل'
+    'attach-file' => 'ضمیمه فایل',
+    'money_changer' => 'صرافی' ,
+    'money_changers' => 'صرافی ها',
+    'director_name' => 'نام مدیر',
+    'director_last_name' => 'نام خانوادگی مدیر',
+    'money_changer_name' => 'نام صرافی',
+    'number_of_affiliated_customers' => 'نعداد مشتریان مرتبط',
+    'created_at' => 'تاریخ ایجاد',
 
 );

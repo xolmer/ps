@@ -19,12 +19,12 @@ class CreateMoneyChangersTable extends Migration {
 			$table->string('country_id');
 			$table->string('director_name');
 			$table->string('director_last_name');
-			$table->string('address');
-			$table->string('phone_number1');
-			$table->string('phone_number2');
-			$table->string('mobile_number');
-			$table->string('fax');
-			$table->string('email_address');
+			$table->string('address')->nullable();
+			$table->string('phone_number1')->nullable();
+			$table->string('phone_number2')->nullable();
+			$table->string('mobile_number')->nullable();
+			$table->string('fax')->nullable();
+			$table->string('email_address')->nullable();
 			$table->softDeletes();
 			$table->timestamps();
 

@@ -26,11 +26,11 @@ Route::group(array('before' => 'auth'), function () {
         Route::group(array('prefix' => 'moneychangers'),function(){
             Route::get('/', array('as' => 'moneychangers.index', 'uses' => 'MoneyChangersController@index'));
 
-            Route::get('createmoneychangers', array('as' => 'moneychangers.create', 'uses' => 'MoneyChangersController@create'));
-            Route::post('createmoneychangers', array('as' => 'moneychangers.store', 'uses' => 'MoneyChangersController@store'));
+            Route::get('createmoneychanger', array('as' => 'moneychanger.create', 'uses' => 'MoneyChangersController@create'));
+            Route::post('createmoneychanger', array('as' => 'moneychanger.store', 'uses' => 'MoneyChangersController@store'));
 
-            Route::get('editmoneychangers/{id}', array('as' => 'moneychangers.edit', 'uses' => 'MoneyChangersController@edit'));
-            Route::post('editmoneychangers/{id}', array('as' => 'moneychangers.update', 'uses' => 'MoneyChangersController@update'));
+            Route::get('editmoneychanger/{id}', array('as' => 'moneychanger.edit', 'uses' => 'MoneyChangersController@edit'));
+            Route::post('editmoneychanger/{id}', array('as' => 'moneychanger.update', 'uses' => 'MoneyChangersController@update'));
         });
 
     });

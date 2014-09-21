@@ -26,6 +26,7 @@ return array(
         'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
         'send_mail' => 'ارسال نامه',
         'compose_mail' => 'نامه جدید',
+        'create_money_changer' => 'معرفی صرافی جدید',
     ),
 
     //For Side menu and breadcrumbs and page headings
@@ -39,7 +40,9 @@ return array(
         'inbox' => 'صندوق دریافت',
         'sentbox' => 'صندوق ارسال',
         'compose_mail' => 'نامه جدید',
-        'trash' => 'سطل زباله'
+        'trash' => 'سطل زباله',
+        'money_changer' => 'صرافی' ,
+        'money_changers' => 'صرافی ها',
 
     ),
 

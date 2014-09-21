@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="dashboard-2.html">
+                    <a href="{{URL::route('moneychangers.index')}}">
                         <span>
                           {{Lang::get('ui.sidebar.money_changers')}}
                       </span>
