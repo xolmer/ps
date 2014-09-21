@@ -86,7 +86,7 @@
                     <td>tedad</td>
                     <td>{{HTML::dateblock($moneyChanger->last_login)}}</td>
                     <td>
-                        <a class="btn btn-default btn-xs farsi btn-icon btn-block" href="{{URL::route('user.edit',array('id' => $moneyChanger->id))}}">
+                        <a class="btn btn-default btn-xs farsi btn-icon btn-block" href="{{URL::route('moneychanger.edit',array('id' => $moneyChanger->id))}}">
                             <i class="fa fa-edit"></i>
                             {{Lang::get('ui.buttons.edit')}}
                         </a>
