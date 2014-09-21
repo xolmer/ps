@@ -25,7 +25,8 @@ class UserValidator extends BaseValidator {
         'password.confirmed' => 'کلمه عبور برای تایید باید مجددا وارد شود',
         'mobile_number.required' => 'شماره تماس کاربر اجباری است',
         'country_of_residence.required' => 'کشور محل سکونت کاربر اجباری است',
-        'timezone' => 'منطقه زمانی وارد شده صحیح نمی باشد'
+        'timezone' => 'منطقه زمانی وارد شده صحیح نمی باشد',
+        'email_address.email' => 'فرمت آدرس ایمیل صحیح نمی باشد' 
     );
 
 
