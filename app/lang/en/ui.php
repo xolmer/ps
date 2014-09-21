@@ -27,6 +27,7 @@ return array(
         'send_mail' => 'ارسال نامه',
         'compose_mail' => 'نامه جدید',
         'create_money_changer' => 'معرفی صرافی جدید',
+        'update_money_changer' => 'بروز رسانی صرافی',
     ),
 
     //For Side menu and breadcrumbs and page headings
@@ -44,6 +45,8 @@ return array(
         'money_changer' => 'صرافی' ,
         'money_changers' => 'صرافی ها',
         'create_money_changer' => 'معرفی صرافی جدید',
+        'update_money_changer' => 'بروز رسانی صرافی',
+
 
     ),
 

@@ -25,9 +25,9 @@ class EloquentMoneyChangerRepository implements MoneyChangerRepositoryInterface{
     }
 
 
-    public function findById( $userID )
+    public function findById( $moneyChangerID )
     {
-        return \MoneyChanger::findOrFail( $userID );
+        return \MoneyChanger::findOrFail( $moneyChangerID );
     }
 
     public function createNewMoneyChanger( $attributes ){
@@ -36,7 +36,16 @@ class EloquentMoneyChangerRepository implements MoneyChangerRepositoryInterface{
     }
 
     public function updateMoneyChanger( $moneyChangerID, $attributes ){
-    	
+        $this->validator->validate($attributes);
+
+        $moneychanger = \MoneyChanger::findOrFail($moneyChangerID);
+
+        $moneychanger->fill($attributes);
+
+        $moneychanger->save();
+
+        return $moneychanger;
+
     }
 
     public function deleteMoneyChanger( $moneyChangerID ){

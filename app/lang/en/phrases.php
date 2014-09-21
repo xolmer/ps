@@ -19,6 +19,7 @@ return array(
     'pleaseWait' => 'لطفا منتظر بمانید',
     'selectYourProfilePic' => 'تصویر پروفایل جدید خود را انتخاب کنید',
     'enter_moneychanger_information' => 'اطلاعات صرافی جدید را وارد کنید',
+    'change_moneychanger_data_to_update' => 'اطلاعات صرافی <strong> :name </strong>را ویرایش کنید',
     'help-block' => array(
 
         'user' => array(

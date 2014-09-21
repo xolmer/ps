@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MoneyChangersController.php.
+ * MoneyChangersController.php
  *
  * LICENSE: This source file is part of PARSIAN Web Application and is subject to
  * copyright regulations. Unauthorized use or publication of this file
@@ -41,6 +41,23 @@ Class MoneyChangersController extends BaseController {
 
         Flash::success(Lang::get('messages.moneychanger.create-success', array(
             'name' => $moneychanger->name,
+        )));
+
+        return Redirect::route('moneychangers.index');
+    }
+
+    public function edit($moneychangerID){
+    	
+    	$moneychanger = $this->mc->findById($moneychangerID);
+
+       	return View::make('moneychangers.moneyChangerEdit')->with('moneychanger',$moneychanger);
+    }
+
+    public function update($moneychangerID){
+    	$changedMoneyChanger = $this->mc->updateMoneyChanger($moneychangerID,Input::except('_token'));
+
+    	Flash::success(Lang::get('messages.moneychanger.update-success', array(
+            'name' => $changedMoneyChanger->name,
         )));
 
         return Redirect::route('moneychangers.index');

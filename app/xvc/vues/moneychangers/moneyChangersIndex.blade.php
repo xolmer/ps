@@ -30,7 +30,7 @@
         @include('partiels._flash')
         <div class="pull-right">
             <a class="btn btn-primary farsi btn-icon" href="{{URL::route('moneychanger.create')}}">
-                <i class="entypo-user-add"></i>
+                <i class="entypo-plus"></i>
                {{Lang::get('ui.buttons.create_money_changer')}}
             </a>
         </div>
