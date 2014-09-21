@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover farsi">
+            <table class="table table-hover table-striped farsi">
                 <thead>
                 <tr>
                     <th></th>
@@ -77,15 +77,16 @@
                 <tr>
                     <td>{{$index+1}}</td>
                     <th>{{$moneyChanger->name}}</th>
+                    <th>{{country($moneyChanger->country_id)}}</th>
                     <td>{{$moneyChanger->director_name}}</td>
                     <td>{{$moneyChanger->director_last_name}}</td>
-                    <td>{{$moneyChanger->phone_number1}}</td>
+                    <td>{{$moneyChanger->phone_number}}</td>
                     <td>{{$moneyChanger->mobile_number}}</td>
                     <td>{{$moneyChanger->email_address}}</td>
                     <td>tedad</td>
                     <td>{{HTML::dateblock($moneyChanger->last_login)}}</td>
                     <td>
-                        <a class="btn btn-default btn-xs farsi btn-icon btn-block" href="{{URL::route('user.edit',array('id' => $user->id))}}">
+                        <a class="btn btn-default btn-xs farsi btn-icon btn-block" href="{{URL::route('user.edit',array('id' => $moneyChanger->id))}}">
                             <i class="fa fa-edit"></i>
                             {{Lang::get('ui.buttons.edit')}}
                         </a>
