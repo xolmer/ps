@@ -78,12 +78,15 @@ return array(
     'customer_senders' => 'فرستنده های مشتری',
     'to' => 'گیرنده ها',
     'subject' => 'عنوان',
+    'from' => 'فرستنده',
     'priority' => 'اهمیت',
     'priorities' => array(
         '1' => 'معمولی',
         '2' => 'مهم',
         '3' => 'خیلی مهم'
     ),
-    'attach-file' => 'ضمیمه فایل'
+    'attach-file' => 'ضمیمه فایل',
+    'attachments' => 'ضمیمه ها' ,
+    'reply'=> 'پاسخ'
 
 );

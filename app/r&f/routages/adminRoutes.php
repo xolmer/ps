@@ -34,6 +34,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::post('markasread', ['as' => 'mail.mark-as-read', 'uses' => 'MailsController@markAsRead']);
         Route::post('uploadattachment',['as' => 'mail.upload-attachment','uses' => 'MailsController@handleAttachment']);
         Route::post('delete',['as' => 'mail.delete','uses' => 'MailsController@deleteMail']);
+        Route::get('inbox/{id}',['as' => 'mail.show','uses' => 'MailsController@showMail']);
 
     });
 

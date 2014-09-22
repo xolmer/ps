@@ -18,7 +18,7 @@ class MailMessage extends Eloquent {
     }
 
     public function attachments(){
-        return $this->hasMany('MailAttachment');
+        return $this->hasMany('MailAttachment','mail_id');
     }
 
 

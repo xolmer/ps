@@ -5,3 +5,4 @@ vendor/.git
 .env.dev.php
 .DS_Store
 public/assets/images/avatars/*.*
+app/storage/parsian

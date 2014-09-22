@@ -32,6 +32,6 @@ interface MailRepositoryInterface extends BaseRepositoryInterface{
 
     public function getUserUnreadCount($userID);
 
-
+    public function getSender($sender_id);
 
 } 
