@@ -44,9 +44,7 @@ return array(
         'sentbox' => 'صندوق ارسال',
         'compose_mail' => 'نامه جدید',
         'trash' => 'سطل زباله',
-<<<<<<< HEAD
-        'subject' => 'عنوان'
-=======
+        'subject' => 'عنوان',
         'money_changer' => 'صرافی' ,
         'money_changers' => 'صرافی ها',
         'create_money_changer' => 'معرفی صرافی جدید',
@@ -58,7 +56,6 @@ return array(
     'sidebar' =>  array(
         'money_changers' => ' صرافی ها' ,
 
->>>>>>> master
 
     )
 
