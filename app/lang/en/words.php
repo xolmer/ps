@@ -94,5 +94,9 @@ return array(
     'number_of_affiliated_customers' => 'نعداد مشتریان مرتبط',
     'created_at' => 'تاریخ ایجاد',
     'business_description' => 'توضیحات کسب و کار',
+    'thingsIMustDo' => 'کارهایی که باید انجام بدهم',
+    'checkDoneItems' => 'موارد انجام شده را تیک بزنید',
+    'newItem' => 'مورد جدید',
+    'deleteDoneItems' => 'حذف موارد انجام شده',
 
 );

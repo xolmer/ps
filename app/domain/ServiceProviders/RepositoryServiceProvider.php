@@ -8,5 +8,6 @@ class RepositoryServiceProvider extends ServiceProvider{
         $this->app->bind('SaarangSlt\Repositories\CustomerRepository\CustomerRepositoryInterface','SaarangSlt\Repositories\CustomerRepository\EloquentCustomerRepository');
         $this->app->bind('SaarangSlt\Repositories\MailRepository\MailRepositoryInterface','SaarangSlt\Repositories\MailRepository\EloquentMailRepository');
         $this->app->bind('SaarangSlt\Repositories\MoneyChangerRepository\MoneyChangerRepositoryInterface','SaarangSlt\Repositories\MoneyChangerRepository\EloquentMoneyChangerRepository');
+        $this->app->bind('SaarangSlt\Repositories\TodoRepository\TodoRepositoryInterface','SaarangSlt\Repositories\TodoRepository\EloquentTodoRepository');
     }
 }
