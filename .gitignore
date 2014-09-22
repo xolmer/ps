@@ -6,3 +6,4 @@ vendor/.git
 .DS_Store
 public/assets/images/avatars/*.*
 app/storage/parsian
+vendor/

@@ -39,68 +39,9 @@
 </div>
 <hr/>
 <div class="row farsi">
-<div class="col-sm-3">
-    <div class="tile-block" id="todo_tasks">
 
-        <div class="tile-header">
-            <i class="entypo-list"></i>
+@include('partiels._todos')
 
-            <a href="#">
-               کارهایی که باید انجام بدهم
-                <span>موارد انجام شده را تیک بزنید</span>
-            </a>
-        </div>
-
-        <div class="tile-content">
-
-            <input type="text" class="form-control" placeholder="مورد جدید" />
-
-
-            <ul class="todo-list">
-                <li>
-                    <div class="checkbox checkbox-replace color-white">
-                        <input type="checkbox" />
-                        <label>تماس با خانم کاظمی</label>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="checkbox checkbox-replace color-white">
-                        <input type="checkbox" id="task-2" checked />
-                        <label>ارسال رسید تی تی </label>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="checkbox checkbox-replace color-white">
-                        <input type="checkbox" id="task-3" />
-                        <label>پیگیری حواله مرادی</label>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="checkbox checkbox-replace color-white">
-                        <input type="checkbox" id="task-4" />
-                        <label>درخواست مرخصی برای پنجشنبه</label>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="checkbox checkbox-replace color-white">
-                        <input type="checkbox" id="task-5" checked="" />
-                        <label>خرید دستمال برای خانه</label>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="tile-footer">
-            <a href="#">خذف موارد انجام شده</a>
-        </div>
-
-    </div>
-</div>
 <div class="col-sm-6">
     <div class="mail-env">
     <div class="mail-body" style="width:100%">
@@ -403,7 +344,7 @@
 
         <div class="tile-footer">
             <h4>
-                <span class="pct-counter">51.2</span>% 
+                <span class="pct-counter">51.2</span>%
             </h4>
 
             <span>نسبت به کل حواله های امروز</span>
@@ -420,7 +361,7 @@
         </div>
         <div class="tile-footer">
             <h4>
-                <span class="pct-counter">35.5</span>% 
+                <span class="pct-counter">35.5</span>%
             </h4>
             <span>نسبت به کل حواله های امروز</span>
         </div>
@@ -438,7 +379,7 @@
 
         <div class="tile-footer">
             <h4>
-                <span class="pct-counter">69.9</span>% 
+                <span class="pct-counter">69.9</span>%
             </h4>
 
             <span>نسبت به کل حواله های امروز</span>
@@ -449,4 +390,10 @@
 
 </div>
 </div>
+@stop
+
+@section('pageScripts')
+<script>
+    todos();
+</script>
 @stop

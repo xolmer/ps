@@ -24,5 +24,10 @@ return array(
     ),
     'mails' => array(
         'send-mail-success' => 'نامه شما با موفقیت ارسال شد'
-    )
+    ),
+    'moneychanger' => array(
+        'create-success' => 'صرافی <strong> :name </strong>با موفقیت به سیستم معرفی گردید',
+        'update-success' => 'صرافی <strong> :name </strong>با موفقیت بروز رسانی شد'
+
+        )
 );

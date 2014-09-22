@@ -24,9 +24,28 @@ Form::macro( 'groupIsInvalid', function ( $input_name ) {
 
 
 Form::macro( 'textInputSet', function ( $input_name, $classes = [], $attributes = null) {
+
+    if(is_array($input_name)){
+        $label = $input_name['label'];
+        $input_name = $input_name['name'];
+    }else{
+        $label = Lang::get("words.$input_name");
+    }
+
     $classes = implode( ' ', $classes );
 
     return View::make( 'disposition.macros.textInputSet' )
+    ->with( array(
+        'name'    => $input_name,
+        'label' => $label,
+        'classes' => $classes
+        ) );
+} );
+
+Form::macro( 'textareaInputSet', function ( $input_name, $classes = [], $attributes = null) {
+    $classes = implode( ' ', $classes );
+
+    return View::make( 'disposition.macros.textareaInputSet' )
     ->with( array(
         'name'    => $input_name,
         'classes' => $classes
@@ -34,7 +53,12 @@ Form::macro( 'textInputSet', function ( $input_name, $classes = [], $attributes 
 } );
 
 Form::macro('selectInputSet',function ( $input_name , $classes = [] , $data = [] , $defaultValue = null, $attributes = null) {
-
+    if(is_array($input_name)){
+        $label = $input_name['label'];
+        $input_name = $input_name['name'];
+    }else{
+        $label = Lang::get("words.$input_name");
+    }
     $classes = implode( ' ', $classes);
 
     return View::make('disposition.macros.selectInputSet')
@@ -42,13 +66,22 @@ Form::macro('selectInputSet',function ( $input_name , $classes = [] , $data = []
         'name' => $input_name,
         'classes' => $classes,
         'defaultValue' => $defaultValue,
-        'data' => $data
+        'data' => $data,
+        'label' => $label
 
         ));
 
 });
 
+
+
 Form::macro('countrySelectSet',function ( $input_name , $classes = [] , $defaultValue = 158) {
+    if(is_array($input_name)){
+        $label = $input_name['label'];
+        $input_name = $input_name['name'];
+    }else{
+        $label = Lang::get("words.$input_name");
+    }
 
     $classes = implode( ' ', $classes);
     $data = DB::table('countries')->lists('country_name','id');
@@ -57,7 +90,9 @@ Form::macro('countrySelectSet',function ( $input_name , $classes = [] , $default
         'name' => $input_name,
         'classes' => $classes,
         'defaultValue' => $defaultValue,
-        'data' => $data
+        'data' => $data,
+        'label' => $label
+        
 
         ));
 
@@ -65,15 +100,15 @@ Form::macro('countrySelectSet',function ( $input_name , $classes = [] , $default
 
 Form::macro('timezoneSelectSet',function ( $input_name , $classes = [] , $defaultValue = 'Asia/Kuala_Lumpur') {
 
-    $classes = implode( ' ', $classes);
+    $classes = implode( ' ', $classes + [' rtl']) ;
     $data = DB::table('timezones')->lists('name','name');
     return View::make('disposition.macros.selectInputSet')
     ->with(array(
         'name' => $input_name,
         'classes' => $classes,
+        'data' => $data,
         'defaultValue' => $defaultValue,
-        'data' => $data
-
+        'label' => $input_name
         ));
 
 });
@@ -83,10 +118,10 @@ Form::macro('imageUploadSet',function ( $input_name , $label,  $classes = [] ) {
     $classes = implode( ' ', $classes);
 
     return View::make('disposition.macros.imageUploadSet')
-        ->with(array(
-            'name' => $input_name,
-            'classes' => $classes,
-            'label' => $label
+    ->with(array(
+        'name' => $input_name,
+        'classes' => $classes,
+        'label' => $label
         ));
 
 });
@@ -95,11 +130,20 @@ Form::macro( 'passwordInputSet', function ( $input_name, $classes = [], $attribu
     $classes = implode( ' ', $classes );
 
     return View::make( 'disposition.macros.passwordInputSet' )
-        ->with( array(
-            'name'    => $input_name,
-            'classes' => $classes
+    ->with( array(
+        'name'    => $input_name,
+        'classes' => $classes
         ) );
 } );
+
+Form::macro('submitInputSet',function($button_label,$classes = [], $attributes = null){
+    $classes = implode( ' ', $classes );
+
+    return View::make('disposition.macros.submitInputSet')
+    ->with(array(
+        'label' => $button_label
+        ));
+});
 
 HTML::macro('dateblock', function($date){
 

@@ -115,3 +115,7 @@
         </div>
     </div>
 </div>
+
+{{Form::textareaInputSet('business_description')}}
+
+{{Form::selectInputSet('moneychanger',['farsi-content rtl'],MoneyChanger::get()->lists('name','id'))}}

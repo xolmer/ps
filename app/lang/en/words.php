@@ -87,6 +87,20 @@ return array(
     ),
     'attach-file' => 'ضمیمه فایل',
     'attachments' => 'ضمیمه ها' ,
-    'reply'=> 'پاسخ'
+    'reply'=> 'پاسخ',
+    'moneychanger_name' => 'نام صرافی',
+    'money_changer' => 'صرافی' ,
+    'money_changers' => 'صرافی ها',
+    'director_name' => 'نام مدیر',
+    'director_last_name' => 'نام خانوادگی مدیر',
+    'money_changer_name' => 'نام صرافی',
+    'number_of_affiliated_customers' => 'نعداد مشتریان مرتبط',
+    'created_at' => 'تاریخ ایجاد',
+    'business_description' => 'توضیحات کسب و کار',
+    'thingsIMustDo' => 'کارهایی که باید انجام بدهم',
+    'checkDoneItems' => 'موارد انجام شده را تیک بزنید',
+    'newItem' => 'مورد جدید',
+    'deleteDoneItems' => 'حذف موارد انجام شده',
+
 
 );

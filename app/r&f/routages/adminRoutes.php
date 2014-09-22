@@ -22,6 +22,17 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('createcustomer', array('as' => 'customer.create', 'uses' => 'CustomersController@create'));
         Route::post('createcustomer', array('as' => 'customer.store', 'uses' => 'CustomersController@store'));
 
+
+        Route::group(array('prefix' => 'moneychangers'),function(){
+            Route::get('/', array('as' => 'moneychangers.index', 'uses' => 'MoneyChangersController@index'));
+
+            Route::get('createmoneychanger', array('as' => 'moneychanger.create', 'uses' => 'MoneyChangersController@create'));
+            Route::post('createmoneychanger', array('as' => 'moneychanger.store', 'uses' => 'MoneyChangersController@store'));
+
+            Route::get('editmoneychanger/{id}', array('as' => 'moneychanger.edit', 'uses' => 'MoneyChangersController@edit'));
+            Route::post('editmoneychanger/{id}', array('as' => 'moneychanger.update', 'uses' => 'MoneyChangersController@update'));
+        });
+
     });
 
     Route::group(['prefix' => 'mails'], function () {
@@ -38,10 +49,18 @@ Route::group(array('before' => 'auth'), function () {
 
     });
 
+    Route::group(['prefix' => 'todos'], function () {
+        Route::post('create',['as' => 'todos.create','uses' => 'TodosController@postCreate']);
+        Route::post('check',['as' => 'todos.check','uses' => 'TodosController@postCheck']);
+        Route::post('delete',['as' => 'todos.delete','uses' => 'TodosController@delete']);
+
+    });
+
 
     Route::get('profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
     Route::post('changeavatar', array('as' => 'user.updateAvatar', 'uses' => 'UserController@updateAvatar'));
     Route::post('removeavatar', array('as' => 'user.removeAvatar', 'uses' => 'UserController@removeAvatar'));
     Route::post('updatepassword', array('as' => 'user.updatePassword', 'uses' => 'UserController@updateCurrentUserPassword'));
+
 
 });

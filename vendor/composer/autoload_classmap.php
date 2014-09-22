@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddMoneychangerIdAndBusinessDescriptionColumnsToCustomersTable' => $baseDir . '/app/database/migrations/2014_09_21_122043_add_moneychanger_id_and_business_description_columns_to_customers_table.php',
     'AddUniqueIdToMailAttachmentsTable' => $baseDir . '/app/database/migrations/2014_09_06_081035_add_uniqueId_to_mail_attachments_table.php',
     'AuthController' => $baseDir . '/app/xvc/controleurs/AuthController.php',
     'BaseController' => $baseDir . '/app/xvc/controleurs/BaseController.php',
@@ -18,6 +19,8 @@ return array(
     'CreateCustomersTable' => $baseDir . '/app/database/migrations/2014_07_25_164303_create_customers_table.php',
     'CreateMailAttachmentsTable' => $baseDir . '/app/database/migrations/2014_08_28_215324_create_mail_attachments_table.php',
     'CreateMailsTable' => $baseDir . '/app/database/migrations/2014_08_28_214739_create_mails_table.php',
+    'CreateMoneyChangersTable' => $baseDir . '/app/database/migrations/2014_09_20_084849_create_money_changers_table.php',
+    'CreateTodosTable' => $baseDir . '/app/database/migrations/2014_09_14_041959_create_todos_table.php',
     'CreateUserMailsTable' => $baseDir . '/app/database/migrations/2014_08_31_180929_create_user_mails_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_07_25_214156_create_users_table.php',
     'Customer' => $baseDir . '/app/domain/Models/Customer.php',
@@ -52,6 +55,8 @@ return array(
     'MailAttachment' => $baseDir . '/app/domain/Models/MailAttachment.php',
     'MailMessage' => $baseDir . '/app/domain/Models/MailMessage.php',
     'MailsController' => $baseDir . '/app/xvc/controleurs/MailsController.php',
+    'MoneyChanger' => $baseDir . '/app/domain/Models/MoneyChanger.php',
+    'MoneyChangersController' => $baseDir . '/app/xvc/controleurs/MoneyChangersController.php',
     'MoveTargetOutOfBoundsException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'NoAlertOpenException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'NoCollectionException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
@@ -467,6 +472,8 @@ return array(
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
     'TimeOutException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'TimezoneTableSeeder' => $baseDir . '/app/database/seeds/TimezoneTableSeeder.php',
+    'Todo' => $baseDir . '/app/domain/Models/Todo.php',
+    'TodosController' => $baseDir . '/app/xvc/controleurs/TodosController.php',
     'UnableToSetCookieException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'UnexpectedAlertOpenException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'UnexpectedJavascriptException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
