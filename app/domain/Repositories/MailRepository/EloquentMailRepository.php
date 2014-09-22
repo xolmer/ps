@@ -25,8 +25,14 @@ class EloquentMailRepository implements MailRepositoryInterface {
 
     function findById($id)
     {
-        // TODO: Implement findById() method.
+        return \MailMessage::find($id);
     }
+
+    public function getSender($sender_id)
+    {
+        return \User::findOrFail($sender_id);
+    }
+
     function storeNewMail($senderID, $subject, $body,$priority, array $receivers)
     {
         $newMail = \MailMessage::create(array(

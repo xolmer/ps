@@ -78,6 +78,7 @@ return array(
     'customer_senders' => 'فرستنده های مشتری',
     'to' => 'گیرنده ها',
     'subject' => 'عنوان',
+    'from' => 'فرستنده',
     'priority' => 'اهمیت',
     'priorities' => array(
         '1' => 'معمولی',
@@ -85,6 +86,8 @@ return array(
         '3' => 'خیلی مهم'
     ),
     'attach-file' => 'ضمیمه فایل',
+    'attachments' => 'ضمیمه ها' ,
+    'reply'=> 'پاسخ',
     'moneychanger_name' => 'نام صرافی',
     'money_changer' => 'صرافی' ,
     'money_changers' => 'صرافی ها',
@@ -98,5 +101,6 @@ return array(
     'checkDoneItems' => 'موارد انجام شده را تیک بزنید',
     'newItem' => 'مورد جدید',
     'deleteDoneItems' => 'حذف موارد انجام شده',
+
 
 );

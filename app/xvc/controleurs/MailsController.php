@@ -83,6 +83,13 @@ class MailsController extends \BaseController
             return $manager->process();
 
     }
+    public function showMail($id)
+    {
+        $mail = $this->mail->findById($id);
+        $attachments = $mail->attachments()->get();
+        $sender = $this->mail->getSender($mail->sender_id);
+        return View::make('mails.mail',compact('mail','sender','attachments'));
+    }
 
 
 }

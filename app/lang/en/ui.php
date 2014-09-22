@@ -26,6 +26,8 @@ return array(
         'removeCurrentAvatar' => 'حذف عکس پروفایل کنونی',
         'send_mail' => 'ارسال نامه',
         'compose_mail' => 'نامه جدید',
+        'reply'=> 'پاسخ',
+        'download' => 'دریافت',
         'create_money_changer' => 'معرفی صرافی جدید',
         'update_money_changer' => 'بروز رسانی صرافی',
     ),
@@ -42,6 +44,9 @@ return array(
         'sentbox' => 'صندوق ارسال',
         'compose_mail' => 'نامه جدید',
         'trash' => 'سطل زباله',
+<<<<<<< HEAD
+        'subject' => 'عنوان'
+=======
         'money_changer' => 'صرافی' ,
         'money_changers' => 'صرافی ها',
         'create_money_changer' => 'معرفی صرافی جدید',
@@ -53,6 +58,7 @@ return array(
     'sidebar' =>  array(
         'money_changers' => ' صرافی ها' ,
 
+>>>>>>> master
 
     )
 
