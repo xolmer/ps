@@ -58,42 +58,13 @@
 
 		<div class="mail-info">
 
-			<div class="mail-sender dropdown">
+			<div class="mail-sender">
 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<a href="#">
 				    <span class="farsi">{{Lang::get('words.from')}} :</span>
-					@if($sender->has_avatar)<img src="assets/images/thumb-1.png" class="img-circle" width="30">@endif
+					@if($sender->has_avatar)<img src="{{$mail->sender->small_avatar}}" class="img-circle" width="30">@endif
 					<b>{{$sender->first_name.' '.$sender->last_name}}</b>
 				</a>
-
-				<ul class="dropdown-menu dropdown-red">
-					<li>
-						<a href="#">
-							<i class="entypo-menu"></i>
-							Show other messages
-						</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="#">
-							<i class="entypo-star"></i>
-							Star this message
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="entypo-reply"></i>
-							Reply
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="entypo-right"></i>
-							Forward
-						</a>
-					</li>
-				</ul>
-
 			</div>
 
 			<div class="mail-date">
